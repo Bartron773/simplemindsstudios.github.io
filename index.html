@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Minds Studios // Clarity for Human Systems</title>
+  <meta name="description" content="A creative systems studio by Bart Salazar & Brad Devowe. Turning complexity into clarity across Western Michigan." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --deep: #0b0916;
+      --void: #110d1f;
+      --purple-dark: #1e1535;
+      --mauve: #7d5e8a;
+      --blush: #c4a0b4;
+      --rose: #d4b4bc;
+      --lavender: #b4a8d4;
+      --cyan: #5bcfef;
+      --white: #ffffff;
+      --ink: rgba(255,255,255,.94);
+      --muted: rgba(255,255,255,.68);
+      --soft: rgba(255,255,255,.46);
+      --glass-mauve: rgba(160,120,180,.12);
+      --glass-border: rgba(255,255,255,.16);
+      --glass-shine: rgba(255,255,255,.22);
+      --glass-shadow: 0 24px 64px rgba(0,0,0,.48), 0 4px 16px rgba(0,0,0,.3);
+      --max: 1240px;
+      --display: 'Playfair Display', Georgia, serif;
+      --body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+      --mono: 'Fira Code', monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--body);
+      background: var(--deep);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* AMBIENT BACKGROUND */
+    .scene { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; }
+    .orb-1 { width: 800px; height: 800px; background: radial-gradient(circle, var(--mauve), transparent 65%); top: -150px; left: -150px; animation: drift 25s infinite alternate; }
+    .orb-2 { width: 600px; height: 600px; background: radial-gradient(circle, var(--cyan), transparent 60%); bottom: 5%; right: -100px; animation: drift 30s infinite alternate-reverse; }
+    
+    @keyframes drift { from { transform: translate(0,0); } to { transform: translate(50px, 30px); } }
+
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 2; }
+
+    /* NAVIGATION */
+    .topbar { position: sticky; top: 0; z-index: 100; padding: 15px 0; }
+    .nav { 
+      display: flex; justify-content: space-between; align-items: center; 
+      padding: 12px 28px; border: 1px solid var(--glass-border); border-radius: 999px; 
+      background: var(--glass-mauve); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+      box-shadow: var(--glass-shadow); 
+    }
+    .brand strong { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.95rem; }
+    .nav-links a { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; margin-left: 20px; color: var(--muted); transition: 0.3s; letter-spacing: 0.15em; text-decoration: none; }
+    .nav-links a:hover { color: var(--cyan); }
+
+    /* TYPOGRAPHY */
+    h1 { font-family: var(--display); font-size: clamp(3.2rem, 9vw, 8.5rem); line-height: 0.82; letter-spacing: -0.06em; margin: 0 0 25px; font-weight: 900; }
+    h1 em { font-style: italic; font-weight: 400; color: var(--blush); }
+    h2 { font-family: var(--display); font-size: clamp(2.2rem, 5vw, 4.5rem); line-height: 1; letter-spacing: -0.04em; margin: 0 0 20px; }
+    h2 em { font-style: italic; font-weight: 400; color: var(--blush); }
+    h3 { font-family: var(--display); font-size: 1.8rem; margin: 0 0 15px; letter-spacing: -0.02em; }
+    .section-label { font-family: var(--mono); text-transform: uppercase; color: var(--cyan); font-size: 0.68rem; letter-spacing: 0.2em; margin-bottom: 12px; display: block; }
+    .sub { color: var(--muted); font-size: 1.1rem; line-height: 1.8; font-weight: 300; max-width: 65ch; margin-bottom: 40px; }
+
+    /* GLASS PANELS */
+    .glass { 
+      background: linear-gradient(160deg, var(--glass-mauve), rgba(255,255,255,.03)); 
+      border: 1px solid var(--glass-border); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+      border-radius: 30px; padding: clamp(25px, 5vw, 40px); box-shadow: var(--glass-shadow); position: relative; overflow: hidden;
+    }
+
+    /* GRID SYSTEMS */
+    .section { padding: clamp(60px, 10vw, 100px) 0 40px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    /* ABOUT SPECIFIC */
+    .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; }
+    .not-list { margin-top: 20px; }
+    .not-item { font-family: var(--mono); font-size: 0.75rem; color: var(--soft); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); text-transform: uppercase; letter-spacing: 0.1em; }
+    .mono-label { font-family: var(--mono); font-size: 0.6rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.2em; }
+
+    /* METHOD GRID */
+    .method-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; }
+    .method-step { text-align: center; padding: 30px 15px; }
+    .method-num { font-family: var(--mono); color: var(--cyan); font-size: 0.7rem; display: block; margin-bottom: 15px; }
+    .method-word { font-family: var(--display); font-size: 1.2rem; font-style: italic; }
+
+    /* SERVICE CARDS */
+    .service-card { display: flex; flex-direction: column; }
+    .service-name { font-family: var(--display); font-size: 1.8rem; margin: 15px 0 10px; font-weight: 700; }
+    .service-desc { color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
+    .service-best p { font-family: var(--mono); font-size: 0.65rem; color: var(--soft); text-transform: uppercase; margin-bottom: 10px; }
+    .service-best ul { padding-left: 18px; margin: 0 0 25px; color: var(--muted); font-size: 0.9rem; }
+    .service-best li { margin-bottom: 6px; }
+    .price { font-family: var(--mono); font-size: 0.75rem; color: var(--cyan); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
+
+    /* FOOTER / CONTACT */
+    .contact-link { color: var(--ink); text-decoration: none; transition: 0.3s ease; }
+    .contact-link:hover { color: var(--cyan); }
+    .social-link { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; border: 1px solid var(--glass-border); padding: 12px 24px; border-radius: 99px; text-decoration: none; color: var(--white); transition: 0.3s; background: rgba(255,255,255,0.05); display: inline-block; }
+    .social-link:hover { border-color: var(--cyan); color: var(--white); background: var(--glass-mauve); transform: translateY(-2px); }
+
+    /* ANIMATION */
+    .reveal { opacity: 0; transform: translateY(30px); transition: 1.2s cubic-bezier(.22,1,.36,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 980px) { 
+      .grid-2, .grid-3, .about-grid, .method-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scene" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <div class="topbar">
+    <div class="wrap">
+      <nav class="nav glass">
+        <div class="brand"><strong>Simple Minds<span style="color:var(--cyan)">.</span></strong></div>
+        <div class="nav-links">
+          <a href="#lincd">Linc(d)</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    
+    <section class="hero">
+      <article class="glass reveal" style="max-width: 900px;">
+        <span class="section-label">A Studio for Intelligent Systems</span>
+        <h1>CLARITY<br />FOR HUMAN<br /><em>SYSTEMS.</em></h1>
+        <p class="sub">We design AI-powered tools, creative systems, and digital experiences that help people and businesses organize complexity, preserve context, and move with purpose.</p>
+        
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:10px;">
+          <a href="#services" class="social-link">Explore Services</a>
+          <a href="#contact" class="social-link">Start a Conversation</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="lincd" class="section">
+      <div class="section-head reveal">
+        <span class="section-label">Flagship System</span>
+        <h2>Meet <em>Linc(d)</em></h2>
+        <p class="sub">
+          Linc(d) is our prototype personal context operating system — a privacy-first interface for organizing people, projects, ideas, AI agents, media, memory, and meaning.
+        </p>
+      </div>
+
+      <div class="grid-2 reveal">
+        <div class="card glass">
+          <h3>For people</h3>
+          <p style="color: var(--muted); font-size: 0.95rem;">
+            A calmer way to organize your digital life: notes, tasks, creative signals, AI tools, devices, and daily context in one human-centered dashboard.
+          </p>
+        </div>
+
+        <div class="card glass">
+          <h3>For businesses</h3>
+          <p style="color: var(--muted); font-size: 0.95rem;">
+            A proof-of-concept for how companies can use AI without becoming colder, noisier, or more confusing. Context first. People first. Systems second.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-head reveal">
+        <span class="section-label">Philosophy</span>
+        <h2>We exist for <em>one reason</em></h2>
+        <p class="sub">To turn complexity into clarity. Our work sits at the intersection of human behavior, design, artificial intelligence, communication, memory, and meaning.</p>
+      </div>
+
+      <div class="about-grid reveal">
+        <div class="card glass">
+          <h3>Who we are</h3>
+          <p>Simple Minds Studios is a creative systems and strategy layer founded by Bart Salazar. We help people understand what they are building, who they are speaking to, what is broken, and how to make it feel clear, useful, beautiful, and human again.</p>
+          <p style="margin-top:14px; color: var(--soft);">
+            Simple Minds Studios is the creative systems and strategy layer. MITechBros, led by Brad Devowe, supports the technical build layer — helping ideas become usable tools, websites, workflows, and systems.
+          </p>
+        </div>
+
+        <div class="card glass">
+          <span class="mono-label">What we are not</span>
+          <div class="not-list">
+            <div class="not-item">A traditional agency</div>
+            <div class="not-item">Just a marketing studio</div>
+            <div class="not-item">Here to make noise</div>
+            <div class="not-item">A template dressed as a studio</div>
+            <div class="not-item">Afraid of hard questions</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head reveal">
+        <span class="section-label">Work</span>
+        <h2>What we <em>do</em></h2>
+        <p class="sub">We help businesses, creators, and teams clarify their digital presence, workflows, stories, and systems.</p>
+      </div>
+
+      <div class="grid-3 reveal">
+        <div class="card glass">
+          <h3>Brand & Identity</h3>
+          <p style="color: var(--muted); font-size: 0.95rem;">Identity clarity. Website and social presence review. Business communication cleanup. Making your "why" visible.</p>
+        </div>
+        <div class="card glass">
+          <h3>AI & Workflow</h3>
+          <p style="color: var(--muted); font-size: 0.95rem;">AI workflow setup tailored to how you actually work. Content strategy. Human-centered systems design.</p>
+        </div>
+        <div class="card glass">
+          <h3>Story & Direction</h3>
+          <p style="color: var(--muted); font-size: 0.95rem;">Creative Direction & AI Strategy. Personal or professional narrative development. Digital legacy and memory-mapping concepts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head reveal">
+        <span class="section-label">Method</span>
+        <h2>The <em>Bart Method</em></h2>
+        <p class="sub">This is our approach to every project — from reviewing a local website to building a future-facing AI creative system.</p>
+      </div>
+
+      <div class="method-grid reveal">
+        <div class="method-step glass">
+          <span class="method-num">01</span>
+          <div class="method-word">Observe.</div>
+        </div>
+        <div class="method-step glass">
+          <span class="method-num">02</span>
+          <div class="method-word">Detect pattern.</div>
+        </div>
+        <div class="method-step glass">
+          <span class="method-num">03</span>
+          <div class="method-word">Clarify chaos.</div>
+        </div>
+        <div class="method-step glass">
+          <span class="method-num">04</span>
+          <div class="method-word">Realign.</div>
+        </div>
+        <div class="method-step glass">
+          <span class="method-num">05</span>
+          <div class="method-word">Leave better.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="section-head reveal">
+        <span class="section-label">Services</span>
+        <h2>Ways to <em>work together</em></h2>
+      </div>
+
+      <div class="grid-2 reveal">
+        <div class="service-card glass">
+          <span class="mono-label">01 — Entry</span>
+          <div class="service-name">Clarity Session</div>
+          <p class="service-desc">A focused 60–90 minute review of your business, idea, or workflow. We identify what is confusing, what is working, and what needs to change.</p>
+          <div class="service-best">
+            <p>Best for</p>
+            <ul>
+              <li>Small business owners & local creators</li>
+              <li>Wellness practitioners</li>
+              <li>Anyone who knows something feels "off"</li>
+            </ul>
+          </div>
+          <span class="price">Starting at $150–$300</span>
+        </div>
+
+        <div class="service-card glass">
+          <span class="mono-label">02 — Audit</span>
+          <div class="service-name">Digital Presence Audit</div>
+          <p class="service-desc">A full review of your website, socials, and messaging. You receive a clear summary of how to make your presence stronger and more human.</p>
+          <div class="service-best">
+            <p>Deliverable</p>
+            <ul>
+              <li>Full written review & prioritized map</li>
+              <li>Actionable next steps</li>
+            </ul>
+          </div>
+          <span class="price">Starting at $400–$900</span>
+        </div>
+
+        <div class="service-card glass">
+          <span class="mono-label">03 — Systems</span>
+          <div class="service-name">AI + Workflow Setup</div>
+          <p class="service-desc">Use AI without losing your voice. We build practical tools, prompts, and content systems tailored to your actual daily output.</p>
+          <div class="service-best">
+            <p>Includes</p>
+            <ul>
+              <li>Custom prompts & tool selection</li>
+              <li>Ethical usage guidelines</li>
+            </ul>
+          </div>
+          <span class="price">Starting at $600–$1,800</span>
+        </div>
+
+        <div class="service-card glass">
+          <span class="mono-label">04 — Analysis</span>
+          <div class="service-name">AI Readiness Audit</div>
+          <p class="service-desc">
+            We review your current tools, workflows, content habits, and communication systems to identify where AI can actually help — without adding chaos.
+          </p>
+          <div class="service-best">
+            <p>Best for</p>
+            <ul>
+              <li>Small businesses unsure where to begin</li>
+              <li>Teams drowning in scattered tools</li>
+              <li>Owners who want practical AI, not hype</li>
+            </ul>
+          </div>
+          <span class="price">Starting at $500–$1,200</span>
+        </div>
+
+        <div class="service-card glass" style="grid-column: span 1;">
+          <span class="mono-label">05 — Deep Work</span>
+          <div class="service-name">Creative Systems</div>
+          <p class="service-desc">For complex builds. We help shape the structure, story, language, and emotional logic of a larger product or creative system.</p>
+          <div class="service-best">
+            <p>Best for</p>
+            <ul>
+              <li>Brands with complex stories</li>
+              <li>Founders who need a thought partner</li>
+            </ul>
+          </div>
+          <span class="price">Starting at $2,000+</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="section" id="contact" style="border-top: 1px solid rgba(255,255,255,.05); margin-top: 80px; padding-bottom: 80px;">
+      <div class="grid-2">
+        <div class="reveal">
+          <h2 style="font-family: var(--display); font-size: 2.8rem; font-style: italic; margin-bottom: 10px;">Simple Minds Studios<span style="color:var(--cyan)">.</span></h2>
+          <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 20px;">
+            <a href="https://www.facebook.com/share/1E8oYgHCau/?mibextid=wwXIfr" target="_blank" class="social-link">Facebook</a>
+          </div>
+          <p style="font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.3em; color: var(--soft);">
+            WESTERN, MI // OCEANA & MUSKEGON COUNTIES // EST. 2024
+          </p>
+        </div>
+        <div class="reveal" style="text-align: right; display: flex; flex-direction: column; justify-content: flex-end;">
+          <a href="mailto:MITechBros@outlook.com" class="contact-link" style="font-family: var(--display); font-size: 1.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 4px;">MITechBros@outlook.com</a>
+          <a href="tel:+12318882124" class="contact-link" style="font-family: var(--mono); font-size: 0.85rem; color: var(--muted); margin-top: 15px; display: block;">1(231)888-2124</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
