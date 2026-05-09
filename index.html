@@ -103,6 +103,13 @@
     .nav-links a:hover {
       color: var(--cyan);
     }
+
+    .social-link[style*="background: var(--cyan)"]:hover {
+      box-shadow: 0 0 35px rgba(91, 207, 239, 0.6) !important;
+      transform: scale(1.02);
+      color: var(--deep) !important;
+    }
+
     
     @media (max-width: 980px) {
       .nav {
@@ -260,21 +267,22 @@
     </section>
 
 
+        <!-- ABOUT SECTION -->
     <section id="about" class="section">
       <div class="section-head reveal">
         <span class="section-label">Philosophy</span>
         <h2>We exist for <em>one reason</em></h2>
-        <p class="sub">To turn complexity into clarity. Our work sits at the intersection of human behavior, design, artificial intelligence, communication, memory, and meaning.</p>
+        <p class="sub">To turn complexity into clarity. We sit at the intersection of human behavior, artificial intelligence, and meaning.</p>
       </div>
 
       <div class="about-grid reveal">
         <div class="card glass">
           <h3>Who we are</h3>
           <p style="margin-bottom: 20px;">
-            Simple Minds Studios is a creative systems and strategy layer founded by Bart Salazar. We help people understand what they are building, who they are speaking to, what is broken, and how to make it feel clear, useful, beautiful, and human again.
+            Simple Minds Studios is a creative systems and strategy studio founded by Bart Salazar. We help people understand what they are building and how to make it feel clear, useful, and human again.
           </p>
-          <p>
-            While Simple Minds Studios handles the creative strategy, <strong>MITechBros</strong> (led by Brad Devowe) supports the technical build layer — transforming abstract ideas into usable tools, websites, workflows, and infrastructure.
+          <p style="border-left: 2px solid var(--cyan); padding-left: 20px; color: var(--muted); font-style: italic;">
+            Technical systems engineering and infrastructure for the studio is provided in partnership with <strong>MITechBros</strong>, led by Brad Devowe.
           </p>
         </div>
 
@@ -290,6 +298,7 @@
         </div>
       </div>
     </section>
+
 
     <section class="section">
       <div class="section-head reveal">
