@@ -581,5 +581,36 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 
+      <!-- PREMIUM LIGHTBOX OVERLAY -->
+<div id="lightbox" style="display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; cursor: zoom-out; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+  <img id="lightbox-img" src="" style="max-width: 90%; max-height: 90%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); object-fit: contain;" />
+</div>
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  
+  // Find all images inside your cards
+  const clickableImages = document.querySelectorAll('.card img');
+  clickableImages.forEach(img => {
+    img.style.cursor = 'zoom-in'; // Shows a zoom cursor on hover
+    img.style.transition = 'transform 0.2s'; // Smooth hover effect
+    
+    // Optional: Add a subtle hover bump to let users know it's clickable
+    img.addEventListener('mouseenter', () => img.style.transform = 'scale(1.02)');
+    img.addEventListener('mouseleave', () => img.style.transform = 'scale(1)');
+    // When an image is clicked, pop it open
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Prevents scrolling the page while open
+    });
+  });
+  // Click anywhere on the dark overlay to close it
+  lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restores scrolling
+  });
+</script>
+
 </body>
 </html>
