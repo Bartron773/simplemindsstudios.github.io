@@ -178,6 +178,11 @@
     .service-best ul { padding-left: 18px; margin: 0 0 25px; color: var(--muted); font-size: 0.9rem; }
     .service-best li { margin-bottom: 6px; }
     .price { font-family: var(--mono); font-size: 0.75rem; color: var(--cyan); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
+    .system-card { display: flex; flex-direction: column; gap: 18px; }
+    .system-kicker { font-family: var(--mono); color: var(--cyan); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.18em; }
+    .system-status { color: var(--soft); font-family: var(--mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; }
+    .system-list { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.92rem; line-height: 1.7; }
+    .system-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; }
 
     /* FOOTER / CONTACT */
     .contact-link { color: var(--ink); text-decoration: none; transition: 0.3s ease; }
@@ -271,6 +276,7 @@
 
         <div class="nav-links">
           <a href="#lincd">Linc(d)</a>
+          <a href="#systems">Systems</a>
           <a href="#about">About</a>
           <a href="#services">Services</a>
           <a href="#faq">FAQ</a>
@@ -344,6 +350,54 @@
             decoding="async"
             style="max-width: 100%; width: 100%; height: auto; display: block; border-radius: 8px;" 
           />
+        </div>
+      </div>
+    </section>
+
+    <section id="systems" class="section">
+      <div class="section-head reveal">
+        <span class="section-label">Studio Systems</span>
+        <h2>Proof you can <em>touch</em></h2>
+        <p class="sub">
+          We do not only talk about clarity, AI, and workflow. We build working systems that turn conversation, context, media, and action into usable tools.
+        </p>
+      </div>
+
+      <div class="grid-2 reveal">
+        <div class="system-card glass">
+          <span class="system-kicker">Context / Memory / Workflow</span>
+          <h3>Linc(d)</h3>
+          <p style="color: var(--muted); line-height: 1.8; margin: 0;">
+            A privacy-first context operating system for organizing projects, AI agents, media, and memory without making the work feel colder.
+          </p>
+          <ul class="system-list">
+            <li>Personal and business dashboards</li>
+            <li>Context-first AI workflow design</li>
+            <li>Early-access product development</li>
+          </ul>
+          <span class="system-status">Status: early access build</span>
+          <div class="system-actions">
+            <a href="#lincd" class="social-link">View Screens</a>
+            <a href="#contact" class="social-link">Ask About Linc(d)</a>
+          </div>
+        </div>
+
+        <div class="system-card glass">
+          <span class="system-kicker">Interiors / Rendering / Specs</span>
+          <h3>SpineFlow</h3>
+          <p style="color: var(--muted); line-height: 1.8; margin: 0;">
+            A live spatial-design intelligence system for exploring interior concepts, generating renders, asking rooms about their logic, producing material specs, and saving design directions.
+          </p>
+          <ul class="system-list">
+            <li>Chat with spatial design nodes</li>
+            <li>Generate visuals and material manifests</li>
+            <li>Prototype licensing and saved-design flows</li>
+          </ul>
+          <span class="system-status">Status: live prototype</span>
+          <div class="system-actions">
+            <a href="https://spineflow-nwh7ttdb.manus.space" target="_blank" rel="noopener noreferrer" class="social-link" style="background: var(--cyan); color: var(--deep); font-weight: 700; border: none;">Try SpineFlow</a>
+            <a href="https://github.com/Bartron773" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+          </div>
         </div>
       </div>
     </section>
@@ -599,11 +653,10 @@
 
 <section class="section" id="testimonials" style="padding-top: 20px;">
   <div class="section-head reveal">
-    <span class="section-label">Words</span>
-    <h2>What people <em>feel</em></h2>
+    <span class="section-label">Proof</span>
+    <h2>Testimonials are <em>coming in</em></h2>
     <p class="sub">
-      We believe good systems should feel calming, collaborative,
-      and deeply human.
+      We are gathering real words from collaborators and clients. Until then, the clearest proof is the work itself: systems that can be opened, tested, questioned, and improved.
     </p>
   </div>
 
@@ -611,19 +664,19 @@
 
     <blockquote class="glass">
       <p class="quote">
-        “They helped us finally make sense of what we were trying to communicate.”
+        Linc(d) shows how context, memory, projects, and AI agents can live in one calmer operating layer.
       </p>
     </blockquote>
 
     <blockquote class="glass">
       <p class="quote">
-        “Working with them felt collaborative instead of transactional.”
+        SpineFlow shows how a creative workflow can become conversational, visual, technical, and interactive.
       </p>
     </blockquote>
 
     <blockquote class="glass">
       <p class="quote">
-        “They understood what we meant even when we didn’t know how to explain it.”
+        Real testimonials will live here once they are ready. We would rather show honest proof than decorate the page with filler.
       </p>
     </blockquote>
 
