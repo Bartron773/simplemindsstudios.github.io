@@ -3,809 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simple Minds Studios // Clarity for Human Systems</title>
-  <meta name="description" content="A creative systems studio by Bart Salazar &amp; Brad Devowe. Turning complexity into clarity across Western Michigan." />
+  <title>Simple Minds Studios // A Studio for Intelligent Systems</title>
+  <meta name="description" content="Simple Minds Studios is the independent creative and systems practice of Bart Salazar, exploring how people use artificial intelligence, design, research, and storytelling to think more clearly." />
   <link rel="canonical" href="https://simplemindsstudios.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://simplemindsstudios.com/" />
-  <meta property="og:title" content="Simple Minds Studios // Clarity for Human Systems" />
-  <meta property="og:description" content="AI-powered tools, creative systems, and digital experiences that help people organize complexity and move with purpose." />
+  <meta property="og:title" content="Simple Minds Studios // A Studio for Intelligent Systems" />
+  <meta property="og:description" content="Independent research, creative systems, and AI-assisted experimentation from Hart, Michigan." />
   <meta property="og:image" content="https://simplemindsstudios.com/images/cover.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Simple Minds Studios // Clarity for Human Systems" />
-  <meta name="twitter:description" content="A creative systems studio turning complexity into clarity across West Michigan." />
+  <meta name="twitter:title" content="Simple Minds Studios // A Studio for Intelligent Systems" />
+  <meta name="twitter:description" content="Turning complexity into clarity through design, research, technology, and story." />
   <meta name="twitter:image" content="https://simplemindsstudios.com/images/cover.png" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&amp;family=DM+Sans:wght@300;400;500;700&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet" />
-
   <style>
     :root {
-      --deep: #0b0916;
-      --void: #110d1f;
-      --purple-dark: #1e1535;
-      --mauve: #7d5e8a;
-      --blush: #c4a0b4;
-      --rose: #d4b4bc;
-      --lavender: #b4a8d4;
-      --cyan: #5bcfef;
-      --white: #ffffff;
-      --ink: rgba(255,255,255,.94);
-      --muted: rgba(255,255,255,.68);
-      --soft: rgba(255,255,255,.46);
-      --glass-mauve: rgba(160,120,180,.12);
-      --glass-border: rgba(255,255,255,.16);
-      --glass-shine: rgba(255,255,255,.22);
-      --glass-shadow: 0 24px 64px rgba(0,0,0,.48), 0 4px 16px rgba(0,0,0,.3);
-      --max: 1240px;
-      --display: 'Playfair Display', Georgia, serif;
-      --body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
-      --mono: 'Fira Code', monospace;
+      --deep:#0b0916; --void:#110d1f; --mauve:#7d5e8a; --blush:#c4a0b4;
+      --cyan:#5bcfef; --white:#fff; --ink:rgba(255,255,255,.94);
+      --muted:rgba(255,255,255,.68); --soft:rgba(255,255,255,.46);
+      --glass:rgba(160,120,180,.11); --border:rgba(255,255,255,.16);
+      --shadow:0 24px 64px rgba(0,0,0,.46); --max:1240px;
+      --display:'Playfair Display',Georgia,serif; --body:'DM Sans',system-ui,sans-serif;
+      --mono:'Fira Code',monospace;
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: var(--body);
-      background: var(--deep);
-      color: var(--ink);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* AMBIENT BACKGROUND */
-    .scene { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; }
-    .orb-1 { width: 800px; height: 800px; background: radial-gradient(circle, var(--mauve), transparent 65%); top: -150px; left: -150px; animation: drift 25s infinite alternate; }
-    .orb-2 { width: 600px; height: 600px; background: radial-gradient(circle, var(--cyan), transparent 60%); bottom: 5%; right: -100px; animation: drift 30s infinite alternate-reverse; }
-    
-    @keyframes drift { from { transform: translate(0,0); } to { transform: translate(50px, 30px); } }
-
-    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 2; }
-
-    /* NAVIGATION */
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding: 15px 0;
-    }
-
-    .nav {
-      min-height: 72px;
-      padding: 10px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid var(--glass-border);
-      border-radius: 999px;
-      background: var(--glass-mauve);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      box-shadow: var(--glass-shadow);
-    }
-
-    .logo-img {
-      height: 58px;
-      width: auto;
-      display: block;
-      object-fit: contain;
-    }
-    
-    .hero-logo {
-      width: 180px;
-      margin-bottom: 30px;
-    }
-    
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      margin-left: 20px;
-      color: var(--muted);
-      transition: 0.3s;
-      letter-spacing: 0.15em;
-      text-decoration: none;
-    }
-    
-    .nav-links a:hover {
-      color: var(--cyan);
-    }
-
-    .social-link[style*="background: var(--cyan)"]:hover {
-      box-shadow: 0 0 35px rgba(91, 207, 239, 0.6) !important;
-      transform: scale(1.02);
-      color: var(--deep) !important;
-    }
-
-    
-    @media (max-width: 980px) {
-      .nav {
-        justify-content: center;
-        padding: 12px 18px;
-        border-radius: 28px;
-      }
-    
-      .logo-img {
-        height: 76px;
-      }
-    
-      .nav-links {
-        display: none;
-      }
-    }
-
-    /* TYPOGRAPHY */
-    h1 { font-family: var(--display); font-size: clamp(3.2rem, 9vw, 8.5rem); line-height: 0.82; letter-spacing: -0.06em; margin: 0 0 25px; font-weight: 900; }
-    h1 em { font-style: italic; font-weight: 400; color: var(--blush); }
-    h2 { font-family: var(--display); font-size: clamp(2.2rem, 5vw, 4.5rem); line-height: 1; letter-spacing: -0.04em; margin: 0 0 20px; }
-    h2 em { font-style: italic; font-weight: 400; color: var(--blush); }
-    h3 { font-family: var(--display); font-size: 1.8rem; margin: 0 0 15px; letter-spacing: -0.02em; }
-    .section-label { font-family: var(--mono); text-transform: uppercase; color: var(--cyan); font-size: 0.68rem; letter-spacing: 0.2em; margin-bottom: 12px; display: block; }
-    .sub { color: var(--muted); font-size: 1.1rem; line-height: 1.8; font-weight: 300; max-width: 65ch; margin-bottom: 40px; }
-
-    /* GLASS PANELS */
-    .glass { 
-      background: linear-gradient(160deg, var(--glass-mauve), rgba(255,255,255,.03)); 
-      border: 1px solid var(--glass-border); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-      border-radius: 30px; padding: clamp(25px, 5vw, 40px); box-shadow: var(--glass-shadow); position: relative; overflow: hidden;
-    }
-
-    /* GRID SYSTEMS */
-    .section { padding: clamp(60px, 10vw, 100px) 0 40px; }
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-
-    /* ABOUT SPECIFIC */
-    .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; }
-    .not-list { margin-top: 20px; }
-    .not-item { font-family: var(--mono); font-size: 0.75rem; color: var(--soft); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); text-transform: uppercase; letter-spacing: 0.1em; }
-    .mono-label { font-family: var(--mono); font-size: 0.6rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.2em; }
-
-    /* METHOD GRID */
-    .method-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; }
-    .method-step { text-align: center; padding: 30px 15px; }
-    .method-num { font-family: var(--mono); color: var(--cyan); font-size: 0.7rem; display: block; margin-bottom: 15px; }
-    .method-word { font-family: var(--display); font-size: 1.2rem; font-style: italic; }
-
-    /* SERVICE CARDS */
-    .service-card { display: flex; flex-direction: column; }
-    .service-name { font-family: var(--display); font-size: 1.8rem; margin: 15px 0 10px; font-weight: 700; }
-    .service-desc { color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
-    .service-best p { font-family: var(--mono); font-size: 0.65rem; color: var(--soft); text-transform: uppercase; margin-bottom: 10px; }
-    .service-best ul { padding-left: 18px; margin: 0 0 25px; color: var(--muted); font-size: 0.9rem; }
-    .service-best li { margin-bottom: 6px; }
-    .price { font-family: var(--mono); font-size: 0.75rem; color: var(--cyan); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
-    .system-card { display: flex; flex-direction: column; gap: 18px; }
-    .system-kicker { font-family: var(--mono); color: var(--cyan); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.18em; }
-    .system-status { color: var(--soft); font-family: var(--mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; }
-    .system-list { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.92rem; line-height: 1.7; }
-    .system-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; }
-
-    /* FOOTER / CONTACT */
-    .contact-link { color: var(--ink); text-decoration: none; transition: 0.3s ease; }
-    .contact-link:hover { color: var(--cyan); }
-    .social-link { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; border: 1px solid var(--glass-border); padding: 12px 24px; border-radius: 99px; text-decoration: none; color: var(--white); transition: 0.3s; background: rgba(255,255,255,0.05); display: inline-block; }
-    .social-link:hover { border-color: var(--cyan); color: var(--white); background: var(--glass-mauve); transform: translateY(-2px); }
-    .footer-contact { text-align: right; display: flex; flex-direction: column; justify-content: flex-end; }
-    blockquote.glass { margin: 0; }
-    .quote { font-size: 1.05rem; line-height: 1.9; color: var(--ink); margin: 0; }
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.85);
-      align-items: center;
-      justify-content: center;
-      cursor: zoom-out;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding: 24px;
-    }
-    .lightbox.active { display: flex; }
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 12px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      object-fit: contain;
-    }
-    .lightbox-close {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      width: 44px;
-      height: 44px;
-      border: 1px solid var(--glass-border);
-      border-radius: 50%;
-      background: rgba(255,255,255,0.08);
-      color: var(--white);
-      cursor: pointer;
-      font-size: 1.6rem;
-      line-height: 1;
-    }
-    .zoomable {
-      cursor: zoom-in;
-      transition: transform 0.2s;
-    }
-    .zoomable:hover { transform: scale(1.02); }
-
-    /* ANIMATION */
-    .reveal { opacity: 0; transform: translateY(30px); transition: 1.2s cubic-bezier(.22,1,.36,1); }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    @media (max-width: 980px) { 
-      .grid-2, .grid-3, .about-grid, .method-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-    }
-
-    @media (max-width: 680px) {
-      .footer-contact { text-align: left; align-items: flex-start; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-      }
-      .reveal { opacity: 1; transform: none; }
-    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--deep);color:var(--ink);font-family:var(--body);overflow-x:hidden}
+    a{color:inherit}.scene{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.48}.orb.one{width:760px;height:760px;background:radial-gradient(circle,var(--mauve),transparent 65%);top:-180px;left:-180px}.orb.two{width:620px;height:620px;background:radial-gradient(circle,var(--cyan),transparent 65%);right:-180px;bottom:0}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto;position:relative;z-index:2}.topbar{position:sticky;top:0;z-index:20;padding:15px 0}.nav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:15px 24px;border:1px solid var(--border);border-radius:999px;background:rgba(17,13,31,.72);backdrop-filter:blur(18px);box-shadow:var(--shadow)}.brand{font-weight:700}.brand span{color:var(--cyan)}.navlinks{display:flex;gap:20px;flex-wrap:wrap}.navlinks a{font:500 .65rem var(--mono);text-decoration:none;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}.navlinks a:hover{color:var(--cyan)}
+    .hero{min-height:82vh;display:grid;align-items:center;padding:70px 0}.glass{background:linear-gradient(155deg,var(--glass),rgba(255,255,255,.025));border:1px solid var(--border);border-radius:30px;box-shadow:var(--shadow);backdrop-filter:blur(26px)}.hero-card{padding:clamp(28px,6vw,66px);max-width:980px}.label{display:block;font:500 .68rem var(--mono);text-transform:uppercase;letter-spacing:.2em;color:var(--cyan);margin-bottom:16px}h1,h2,h3{font-family:var(--display);margin-top:0}h1{font-size:clamp(3.1rem,9vw,8.4rem);line-height:.84;letter-spacing:-.06em;margin-bottom:26px}h1 em,h2 em{font-weight:400;color:var(--blush)}h2{font-size:clamp(2.3rem,5vw,4.7rem);line-height:1;letter-spacing:-.04em;margin-bottom:20px}h3{font-size:1.85rem;margin-bottom:12px}.sub{font-size:1.1rem;line-height:1.8;color:var(--muted);max-width:70ch}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.button{display:inline-block;text-decoration:none;border:1px solid var(--border);border-radius:999px;padding:13px 22px;font:500 .68rem var(--mono);text-transform:uppercase;letter-spacing:.1em;background:rgba(255,255,255,.045)}.button.primary{background:var(--cyan);color:var(--deep);border-color:transparent;font-weight:700}.section{padding:80px 0 30px}.section-head{margin-bottom:28px}.grid{display:grid;gap:20px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.card{padding:30px;display:flex;flex-direction:column;min-height:100%}.kicker,.status{font:500 .62rem var(--mono);text-transform:uppercase;letter-spacing:.15em}.kicker{color:var(--cyan);margin-bottom:12px}.status{color:var(--soft);margin-top:auto;padding-top:20px}.card p{color:var(--muted);line-height:1.7}.card .actions{margin-top:auto;padding-top:8px}.project-card{min-height:310px}.research-card{padding:clamp(30px,5vw,52px)}.number{font:500 .7rem var(--mono);color:var(--cyan);letter-spacing:.18em;text-transform:uppercase}.method{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.method div{padding:25px 14px;text-align:center}.method b{display:block;font:500 .62rem var(--mono);color:var(--cyan);margin-bottom:10px}.method span{font:italic 1.15rem var(--display)}.about{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}.footer{padding:80px 0 50px}.fine{font:500 .62rem var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--soft);line-height:1.8}.note{border-left:2px solid var(--cyan);padding-left:20px;color:var(--muted);font-style:italic}.coming{border-style:dashed}.coming h3{color:var(--blush)}
+    @media(max-width:920px){.grid.two,.grid.three,.about,.method{grid-template-columns:1fr}.nav{justify-content:center;border-radius:28px}.navlinks{display:none}.hero{min-height:auto;padding-top:50px}.project-card{min-height:0}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   </style>
 </head>
 <body>
-
-  <div class="scene" aria-hidden="true">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-  </div>
-
-  <div class="topbar">
-    <div class="wrap">
-      <nav class="nav">
-        <div class="brand">
-          <strong>Simple Minds<span style="color:var(--cyan)">.</span></strong>
-        </div>
-
-        <div class="nav-links">
-          <a href="#lincd">Linc(d)</a>
-          <a href="#systems">Systems</a>
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
-    </div>
-  </div>
+  <div class="scene" aria-hidden="true"><div class="orb one"></div><div class="orb two"></div></div>
+  <div class="topbar"><div class="wrap"><nav class="nav" aria-label="Primary"><div class="brand">Simple Minds<span>.</span></div><div class="navlinks"><a href="#studio">Studio</a><a href="#projects">Projects</a><a href="#research">Research</a><a href="#method">Method</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav></div></div>
 
   <main class="wrap">
-    
-        <!-- HERO -->
-    <section class="hero" style="min-height: 85vh; display: grid; align-items: center; padding: 60px 0;">
-      <article class="glass reveal" style="max-width: 900px;">
-        <span class="section-label">A Studio for Intelligent Systems</span>
-        <h1>CLARITY<br />FOR HUMAN<br /><em>SYSTEMS.</em></h1>
-        <p class="sub">We explore humane intelligence systems through art, atmosphere, support, and co-creation.</p>
-        
-        <!-- TRUST STATEMENT -->
-        <p style="font-family: var(--mono); font-size: 0.7rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px;">
-          Trusted by local businesses, wellness professionals, and creators across West Michigan.
-        </p>
-
-        <!-- PRIMARY CTA -->
-        <div style="display:flex; gap:16px; flex-wrap:wrap;">
-          <a href="#contact" class="social-link" style="background: var(--cyan); color: var(--deep); font-weight: 700; border: none; padding: 16px 32px; box-shadow: 0 0 20px rgba(91, 207, 239, 0.3);">Book a Clarity Session</a>
-          <a href="#contact" class="social-link" style="padding: 16px 32px;">Start a Conversation</a>
-        </div>
+    <section id="studio" class="hero">
+      <article class="hero-card glass">
+        <span class="label">A Studio for Intelligent Systems</span>
+        <h1>CLARITY<br>FOR HUMAN<br><em>SYSTEMS.</em></h1>
+        <p class="sub">Simple Minds Studios explores how people use artificial intelligence, design, research, and storytelling to think more clearly. Some work becomes software. Some becomes film, fashion, public art, policy, or a research question. All of it begins by noticing something.</p>
+        <div class="actions"><a class="button primary" href="#projects">Browse the studio</a><a class="button" href="https://github.com/Bartron773" target="_blank" rel="noopener noreferrer">Open the GitHub archive</a></div>
       </article>
     </section>
 
-
-        <!-- FLAGSHIP: LINCD -->
-    <section id="lincd" class="section">
-      <div class="section-head reveal">
-        <span class="section-label">Flagship System</span>
-        <h2>Meet <em>Linc(d)</em></h2>
-        <p class="sub">
-          Linc(d) is our <strong>early-access context operating system</strong> — a privacy-first interface for organizing projects, AI agents, media, and memory.
-        </p>
-      </div>
-
-      <div class="grid-2 reveal">
-        <div class="card glass">
-          <h3>Personal Intelligence</h3>
-          <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 20px;">
-            A calmer way to organize your digital life: notes, tasks, and AI tools in one human-centered dashboard.
-          </p>
-          <!-- VISUAL PLACEHOLDER -->
-          <img 
-            src="images/lincd-dashboard-1.jpeg" 
-            alt="Linc(d) Dashboard Preview" 
-            class="glass zoomable"
-            loading="lazy"
-            decoding="async"
-            style="max-width: 100%; width: 100%; height: auto; display: block; border-radius: 8px;" 
-          />
-        </div>  
-
-        <div class="card glass">
-          <h3>Business Context</h3>
-          <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 20px;">
-            A system for how teams use AI without becoming colder or noisier. Context first. People first. 
-          </p>
-           <!-- VISUAL PLACEHOLDER -->
-           <img 
-            src="images/lincd-dashboard-2.jpeg" 
-            alt="Linc(d) Business Context" 
-            class="glass zoomable"
-            loading="lazy"
-            decoding="async"
-            style="max-width: 100%; width: 100%; height: auto; display: block; border-radius: 8px;" 
-          />
-        </div>
+    <section id="projects" class="section">
+      <div class="section-head"><span class="label">The Collection</span><h2>Projects, systems &amp; <em>experiments</em></h2><p class="sub">The website is the exhibition. GitHub is the working archive: source files, documentation, versions, licensing, and the record of how each idea developed.</p></div>
+      <div class="grid three">
+        <article class="project-card card glass"><span class="kicker">Context / Memory / Workflow</span><h3>Linc(d)</h3><p>A privacy-first context operating system for organizing projects, AI agents, media, memory, and personal intelligence without making the work feel colder.</p><span class="status">Private development repository</span></article>
+        <article class="project-card card glass"><span class="kicker">Spatial Design / Intelligent Interiors</span><h3>SpineFlow</h3><p>A live spatial-design system for exploring interior concepts, rendering directions, material logic, and the structures that allow a room to think with its user.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/spineflow-tiny-showcase" target="_blank" rel="noopener noreferrer">Repository</a><a class="button" href="https://spineflow-nwh7ttdb.manus.space" target="_blank" rel="noopener noreferrer">Live prototype</a></div></article>
+        <article class="project-card card glass"><span class="kicker">Civic Systems / Local Equity</span><h3>The Hart Protocol</h3><p>A public-interest framework for data centers, local benefit, energy responsibility, and community participation in the infrastructure shaping the future.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/the-hart-protocol" target="_blank" rel="noopener noreferrer">Repository</a></div></article>
+        <article class="project-card card glass"><span class="kicker">Systems Theory / Pattern</span><h3>Fractalnomia</h3><p>An evolving inquiry into repeating structures, economics, systems behavior, and the patterns that appear across scales.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/Fractalnomia" target="_blank" rel="noopener noreferrer">Repository</a></div></article>
+        <article class="project-card card glass"><span class="kicker">Space Science / Data Exploration</span><h3>RomanMAST</h3><p>A research-oriented project working with astronomical data, observation, and tools for finding meaningful structure within large scientific archives.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/RomanMAST" target="_blank" rel="noopener noreferrer">Repository</a></div></article>
+        <article class="project-card card glass"><span class="kicker">Detection / Anomaly / Signals</span><h3>HCBL Burstlog</h3><p>A public experiment in recording and examining bursts, irregular signals, and unexpected events through a documented technical workflow.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/hcbl-burstlog" target="_blank" rel="noopener noreferrer">Repository</a></div></article>
+        <article class="project-card card glass"><span class="kicker">Detection / Machine Learning</span><h3>Novelty Anomaly Burst Detector</h3><p>A compact detector concept focused on novelty, anomaly, and burst behavior in data streams.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/novelty-anomaly-burst-detector" target="_blank" rel="noopener noreferrer">Repository</a></div></article>
+        <article class="project-card card glass"><span class="kicker">Fashion / Editorial / Atmosphere</span><h3>Low Visibility</h3><p>A connected fashion world spanning lookbooks, brand systems, atmosphere, swim, editorial identity, and the visual language of obscured environments.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/Low-Visibility-Lookbooks" target="_blank" rel="noopener noreferrer">Lookbooks</a><a class="button" href="https://github.com/Bartron773/low-visibility-brand-bible" target="_blank" rel="noopener noreferrer">Brand Bible</a></div></article>
+        <article class="project-card card glass"><span class="kicker">Music / Narrative / Performance</span><h3>Glam Confession</h3><p>A visual and musical project exploring performance, confession, glamour, identity, and AI-assisted narrative production.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/glam-confession" target="_blank" rel="noopener noreferrer">Repository</a></div></article>
+        <article class="project-card card glass coming"><span class="kicker">Exhibits / New Work</span><h3>More rooms are opening.</h3><p>New films, visual studies, public-art concepts, music projects, photography, research, and model-built exhibits will be added as they are prepared.</p><span class="status">In development</span></article>
       </div>
     </section>
 
-    <section id="systems" class="section">
-      <div class="section-head reveal">
-        <span class="section-label">Studio Systems</span>
-        <h2>Proof you can <em>touch</em></h2>
-        <p class="sub">
-          We do not only talk about clarity, AI, and workflow. We build working systems that turn conversation, context, media, and action into usable tools.
-        </p>
-      </div>
-
-      <div class="grid-2 reveal">
-        <div class="system-card glass">
-          <span class="system-kicker">Context / Memory / Workflow</span>
-          <h3>Linc(d)</h3>
-          <p style="color: var(--muted); line-height: 1.8; margin: 0;">
-            A privacy-first context operating system for organizing projects, AI agents, media, and memory without making the work feel colder.
-          </p>
-          <ul class="system-list">
-            <li>Personal and business dashboards</li>
-            <li>Context-first AI workflow design</li>
-            <li>Early-access product development</li>
-          </ul>
-          <span class="system-status">Status: early access build</span>
-          <div class="system-actions">
-            <a href="#lincd" class="social-link">View Screens</a>
-            <a href="#contact" class="social-link">Ask About Linc(d)</a>
-          </div>
-        </div>
-
-        <div class="system-card glass">
-          <span class="system-kicker">Interiors / Rendering / Specs</span>
-          <h3>SpineFlow</h3>
-          <p style="color: var(--muted); line-height: 1.8; margin: 0;">
-            A live spatial-design intelligence system for exploring interior concepts, generating renders, asking rooms about their logic, producing material specs, and saving design directions.
-          </p>
-          <ul class="system-list">
-            <li>Chat with spatial design nodes</li>
-            <li>Generate visuals and material manifests</li>
-            <li>Prototype licensing and saved-design flows</li>
-          </ul>
-          <span class="system-status">Status: live prototype</span>
-          <div class="system-actions">
-            <a href="https://spineflow-nwh7ttdb.manus.space" target="_blank" rel="noopener noreferrer" class="social-link" style="background: var(--cyan); color: var(--deep); font-weight: 700; border: none;">Try SpineFlow</a>
-            <a href="https://github.com/Bartron773" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
-          </div>
-        </div>
-      </div>
+    <section id="research" class="section">
+      <div class="section-head"><span class="label">Research &amp; Positions</span><h2>Questions worth <em>staying with</em></h2></div>
+      <article class="research-card glass"><span class="number">Research 001 / In development</span><h2 style="margin-top:18px">The Cognitive Partnership Framework</h2><p class="sub">Toward a positive psychology of human–AI collaboration. This work asks not only why continuity failure in AI relationships can hurt, but why continuity can help—and what new forms of human thought emerge when people learn to think with artificial intelligence.</p><p class="note">Continuity is valuable not because it preserves an illusion of personhood, but because it preserves accumulated cognition.</p><div class="actions"><a class="button" href="https://github.com/Bartron773" target="_blank" rel="noopener noreferrer">Research repository coming soon</a></div></article>
     </section>
 
+    <section id="method" class="section">
+      <div class="section-head"><span class="label">Studio Method</span><h2>How the work <em>moves</em></h2><p class="sub">A question can begin in a conversation, a walk, an image, a system failure, a customer interaction, or a thought that refuses to leave.</p></div>
+      <div class="method"><div class="glass"><b>01</b><span>Observe.</span></div><div class="glass"><b>02</b><span>Question.</span></div><div class="glass"><b>03</b><span>Connect.</span></div><div class="glass"><b>04</b><span>Build.</span></div><div class="glass"><b>05</b><span>Share.</span></div></div>
+    </section>
 
-        <!-- ABOUT SECTION -->
     <section id="about" class="section">
-      <div class="section-head reveal">
-        <span class="section-label">Philosophy</span>
-        <h2>We exist for <em>one reason</em></h2>
-        <p class="sub">To turn complexity into clarity. We sit at the intersection of human behavior, artificial intelligence, and meaning.</p>
-      </div>
-
-      <div class="about-grid reveal">
-        <div class="card glass">
-          <h3>Who we are</h3>
-          <p style="margin-bottom: 20px;">
-            Simple Minds Studios is a creative systems and strategy studio founded by Bart Salazar. We help people understand what they are building and how to make it feel clear, useful, and human again.
-          </p>
-          <p style="border-left: 2px solid var(--cyan); padding-left: 20px; color: var(--muted); font-style: italic;">
-            Technical systems engineering and infrastructure for the studio is provided in partnership with <strong>MITechBros</strong>, led by Brad Devowe.
-          </p>
-        </div>
-
-        <div class="card glass">
-          <span class="mono-label">What we are not</span>
-          <div class="not-list">
-            <div class="not-item">A traditional agency</div>
-            <div class="not-item">Just a marketing studio</div>
-            <div class="not-item">Here to make noise</div>
-            <div class="not-item">A template dressed as a studio</div>
-            <div class="not-item">Afraid of hard questions</div>
-          </div>
-        </div>
-      </div>
+      <div class="section-head"><span class="label">About the Studio</span><h2>Independent by design.</h2></div>
+      <div class="about"><article class="card glass"><h3>Simple Minds Studios</h3><p>Simple Minds Studios is the independent creative and systems practice of Bart Salazar in Hart, Michigan. It brings together research, design, artificial intelligence, civic imagination, software experiments, fashion, photography, music, and narrative work.</p><p>The studio is not organized around a single medium. It is organized around a way of thinking: notice what is difficult to understand, stay curious long enough to see its structure, and make that structure visible.</p></article><article class="card glass"><span class="kicker">The working principle</span><h3>Making things make sense.</h3><p>AI is used here as a cognitive and creative tool: to challenge assumptions, clarify thought, connect ideas, prototype possibilities, and expand what one person can investigate and build.</p><p class="note">Selected projects may include credited collaborators, technical partners, and contributions from multiple AI systems.</p></article></div>
     </section>
 
-
-    <section class="section">
-      <div class="section-head reveal">
-        <span class="section-label">Work</span>
-        <h2>What we <em>do</em></h2>
-        <p class="sub">We help businesses, creators, and teams clarify their digital presence, workflows, stories, and systems.</p>
-      </div>
-
-      <div class="grid-3 reveal">
-        <div class="card glass">
-          <h3>Brand &amp; Identity</h3>
-          <p style="color: var(--muted); font-size: 0.95rem;">Identity clarity. Website and social presence review. Business communication cleanup. Making your "why" visible.</p>
-        </div>
-        <div class="card glass">
-          <h3>AI &amp; Workflow</h3>
-          <p style="color: var(--muted); font-size: 0.95rem;">AI workflow setup tailored to how you actually work. Content strategy. Human-centered systems design.</p>
-        </div>
-        <div class="card glass">
-          <h3>Story &amp; Direction</h3>
-          <p style="color: var(--muted); font-size: 0.95rem;">Creative Direction &amp; AI Strategy. Personal or professional narrative development. Digital legacy and memory-mapping concepts.</p>
-        </div>
-      </div>
+    <section id="contact" class="section">
+      <article class="research-card glass"><span class="label">Work With the Studio</span><h2>Bring the difficult thing.</h2><p class="sub">Simple Minds Studios is developing its public body of work while remaining open to thoughtful collaborations, creative direction, systems clarification, AI workflow design, research partnerships, and projects that do not fit neatly inside an ordinary category.</p><div class="actions"><a class="button primary" href="mailto:hello@simplemindsstudios.com">Start a conversation</a><a class="button" href="https://github.com/Bartron773" target="_blank" rel="noopener noreferrer">GitHub</a></div></article>
     </section>
-
-    <section class="section">
-      <div class="section-head reveal">
-        <span class="section-label">Method</span>
-        <h2>Our <em>Method</em></h2>
-        <p class="sub">This is our approach to every project — from reviewing a local website to building a future-facing AI creative system.</p>
-      </div>
-
-      <div class="method-grid reveal">
-        <div class="method-step glass">
-          <span class="method-num">01</span>
-          <div class="method-word">Observe.</div>
-        </div>
-        <div class="method-step glass">
-          <span class="method-num">02</span>
-          <div class="method-word">Detect pattern.</div>
-        </div>
-        <div class="method-step glass">
-          <span class="method-num">03</span>
-          <div class="method-word">Clarify chaos.</div>
-        </div>
-        <div class="method-step glass">
-          <span class="method-num">04</span>
-          <div class="method-word">Realign.</div>
-        </div>
-        <div class="method-step glass">
-          <span class="method-num">05</span>
-          <div class="method-word">Leave better.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="section">
-      <div class="section-head reveal">
-        <span class="section-label">Services</span>
-        <h2>Ways to <em>work together</em></h2>
-      </div>
-
-      <div class="grid-2 reveal">
-        <div class="service-card glass">
-          <span class="mono-label">01 — Entry</span>
-          <div class="service-name">Clarity Session</div>
-          <p class="service-desc">A focused 60–90 minute review of your business, idea, or workflow. We identify what is confusing, what is working, and what needs to change.</p>
-          <div class="service-best">
-            <p>Best for</p>
-            <ul>
-              <li>Small business owners &amp; local creators</li>
-              <li>Wellness practitioners</li>
-              <li>Anyone who knows something feels "off"</li>
-            </ul>
-          </div>
-          <span class="price">Starting at $150–$300</span>
-        </div>
-
-        <div class="service-card glass">
-          <span class="mono-label">02 — Audit</span>
-          <div class="service-name">Digital Presence Audit</div>
-          <p class="service-desc">A full review of your website, socials, and messaging. You receive a clear summary of how to make your presence stronger and more human.</p>
-          <div class="service-best">
-            <p>Deliverable</p>
-            <ul>
-              <li>Full written review &amp; prioritized map</li>
-              <li>Actionable next steps</li>
-            </ul>
-          </div>
-          <span class="price">Starting at $400–$900</span>
-        </div>
-
-        <div class="service-card glass">
-          <span class="mono-label">03 — Systems</span>
-          <div class="service-name">AI + Workflow Setup</div>
-          <p class="service-desc">Use AI without losing your voice. We build practical tools, prompts, and content systems tailored to your actual daily output.</p>
-          <div class="service-best">
-            <p>Includes</p>
-            <ul>
-              <li>Custom prompts &amp; tool selection</li>
-              <li>Ethical usage guidelines</li>
-            </ul>
-          </div>
-          <span class="price">Starting at $600–$1,800</span>
-        </div>
-
-        <div class="service-card glass">
-          <span class="mono-label">04 — Analysis</span>
-          <div class="service-name">AI Readiness Audit</div>
-          <p class="service-desc">
-            We review your current tools, workflows, content habits, and communication systems to identify where AI can actually help — without adding chaos.
-          </p>
-          <div class="service-best">
-            <p>Best for</p>
-            <ul>
-              <li>Small businesses unsure where to begin</li>
-              <li>Teams drowning in scattered tools</li>
-              <li>Owners who want practical AI, not hype</li>
-            </ul>
-          </div>
-          <span class="price">Starting at $500–$1,200</span>
-        </div>
-
-        <div class="service-card glass" style="grid-column: span 1;">
-          <span class="mono-label">05 — Deep Work</span>
-          <div class="service-name">Creative Systems</div>
-          <p class="service-desc">For complex builds. We help shape the structure, story, language, and emotional logic of a larger product or creative system.</p>
-          <div class="service-best">
-            <p>Best for</p>
-            <ul>
-              <li>Brands with complex stories</li>
-              <li>Founders who need a thought partner</li>
-            </ul>
-          </div>
-          <span class="price">Starting at $2,000+</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="faq">
-  <div class="section-head reveal">
-    <span class="section-label">FAQ</span>
-    <h2>“Wait… You <em>Help With That?</em>”</h2>
-    <p class="sub">
-      Most people come to us with a feeling before they come with a solution.
-      Overwhelm. Disconnection. A business that no longer feels like itself.
-      We help translate complexity into clarity — through listening, pattern recognition,
-      systems thinking, creative direction, and human-centered technology.
-    </p>
-  </div>
-
-  <div class="grid-2 reveal">
-
-    <div class="glass">
-      <h3>“We know our business is good, but our online presence doesn’t feel like us.”</h3>
-      <p style="color: var(--muted); line-height: 1.8;">
-        That disconnect is more common than people realize.
-        We help businesses realign their visuals, messaging, digital presence,
-        and overall communication so everything feels cohesive, intentional, and human again.
-      </p>
-    </div>
-
-    <div class="glass">
-      <h3>“Can you help even if we don’t know exactly what we need?”</h3>
-      <p style="color: var(--muted); line-height: 1.8;">
-        Yes. In fact, that’s where some of the best work begins.
-        We’re excellent listeners and collaborative thinkers —
-        helping people untangle ideas, identify friction points,
-        and discover what’s actually holding things back.
-      </p>
-    </div>
-
-    <div class="glass">
-      <h3>“We’re not a tech company. Can AI still help us?”</h3>
-      <p style="color: var(--muted); line-height: 1.8;">
-        Absolutely.
-        Most businesses don’t need complicated AI systems.
-        They need practical, thoughtful tools that reduce overwhelm,
-        improve workflow, and preserve their voice instead of replacing it.
-      </p>
-    </div>
-
-    <div class="glass">
-      <h3>“Can you help organize ideas, workflows, or creative direction?”</h3>
-      <p style="color: var(--muted); line-height: 1.8;">
-        Yes.
-        Sometimes the problem isn’t talent —
-        it’s scattered systems, disconnected communication,
-        or too many moving parts at once.
-        We help create clarity, structure, and momentum.
-      </p>
-    </div>
-
-    <div class="glass">
-      <h3>“Do you only build websites?”</h3>
-      <p style="color: var(--muted); line-height: 1.8;">
-        No.
-        Sometimes the website isn’t actually the issue.
-        The real problem may be messaging, workflow confusion,
-        inconsistent branding, or a digital presence that no longer reflects who you are.
-        We look at the full ecosystem.
-      </p>
-    </div>
-
-    <div class="glass">
-      <h3>“What kinds of people do you work with?”</h3>
-      <p style="color: var(--muted); line-height: 1.8;">
-        We especially love working with thoughtful humans:
-        small businesses, artists, wellness professionals,
-        independent brands, founders, local organizations,
-        and people trying to modernize without becoming corporate.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<section class="section" id="testimonials" style="padding-top: 20px;">
-  <div class="section-head reveal">
-    <span class="section-label">Proof</span>
-    <h2>Testimonials are <em>coming in</em></h2>
-    <p class="sub">
-      We are gathering real words from collaborators and clients. Until then, the clearest proof is the work itself: systems that can be opened, tested, questioned, and improved.
-    </p>
-  </div>
-
-  <div class="grid-3 reveal">
-
-    <blockquote class="glass">
-      <p class="quote">
-        Linc(d) shows how context, memory, projects, and AI agents can live in one calmer operating layer.
-      </p>
-    </blockquote>
-
-    <blockquote class="glass">
-      <p class="quote">
-        SpineFlow shows how a creative workflow can become conversational, visual, technical, and interactive.
-      </p>
-    </blockquote>
-
-    <blockquote class="glass">
-      <p class="quote">
-        Real testimonials will live here once they are ready. We would rather show honest proof than decorate the page with filler.
-      </p>
-    </blockquote>
-
-  </div>
-</section>
-
-    <footer class="section" id="contact" style="border-top: 1px solid rgba(255,255,255,.05); margin-top: 80px; padding-bottom: 80px;">
-      <div class="grid-2">
-        <div class="reveal">
-          <h2 style="font-family: var(--display); font-size: 2.8rem; font-style: italic; margin-bottom: 10px;">Simple Minds Studios<span style="color:var(--cyan)">.</span></h2>
-          <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 20px;">
-            <a href="https://www.facebook.com/share/1E8oYgHCau/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-link">Facebook</a>
-          </div>
-          <p style="font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.3em; color: var(--soft);">
-            WESTERN, MI // OCEANA &amp; MUSKEGON COUNTIES // EST. 2024
-          </p>
-        </div>
-        <div class="reveal footer-contact">
-          <a href="mailto:MITechBros@outlook.com" class="contact-link" style="font-family: var(--display); font-size: 1.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 4px;">MITechBros@outlook.com</a>
-          <a href="tel:+12318882124" class="contact-link" style="font-family: var(--mono); font-size: 0.85rem; color: var(--muted); margin-top: 15px; display: block;">1(231)888-2124</a>
-        </div>
-      </div>
-    </footer>
-
   </main>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
-
-      <!-- PREMIUM LIGHTBOX OVERLAY -->
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image preview" tabindex="-1">
-  <button class="lightbox-close" type="button" aria-label="Close image preview">&times;</button>
-  <img id="lightbox-img" src="" alt="" />
-</div>
-<script>
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxClose = document.querySelector('.lightbox-close');
-
-  function openLightbox(img) {
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    lightbox.focus();
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('active');
-    lightboxImg.src = '';
-    lightboxImg.alt = '';
-    document.body.style.overflow = '';
-  }
-  
-  const clickableImages = document.querySelectorAll('.card img');
-  clickableImages.forEach(img => {
-    img.addEventListener('click', () => openLightbox(img));
-  });
-
-  lightbox.addEventListener('click', (event) => {
-    if (event.target === lightbox) closeLightbox();
-  });
-
-  lightboxClose.addEventListener('click', closeLightbox);
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
-  });
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "We know our business is good, but our online presence doesn't feel like us.",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We help businesses realign their visuals, messaging, digital presence, and overall communication so everything feels cohesive, intentional, and human again."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you help even if we don't know exactly what we need?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. We help people untangle ideas, identify friction points, and discover what is actually holding things back."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "We're not a tech company. Can AI still help us?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. Most businesses need practical, thoughtful tools that reduce overwhelm, improve workflow, and preserve their voice instead of replacing it."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you help organize ideas, workflows, or creative direction?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. We help create clarity, structure, and momentum when systems, communication, or creative direction feel scattered."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you only build websites?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. We look at the full ecosystem, including messaging, workflow confusion, inconsistent branding, and digital presence."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What kinds of people do you work with?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We work with small businesses, artists, wellness professionals, independent brands, founders, local organizations, and people trying to modernize without becoming corporate."
-      }
-    }
-  ]
-}
-</script>
-
+  <footer class="footer"><div class="wrap"><p class="fine">Created by Bart Salazar / Simple Minds Studios<br>Hart, Michigan — 2026<br>Support your local dreamer.</p></div></footer>
 </body>
 </html>
