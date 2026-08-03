@@ -3,40 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Simple Minds Studios — A Spatial Habitat</title>
-  <meta name="description" content="Simple Minds Studios is an explorable digital cultural space for research, design, film, fashion, music, civic imagination, and questions worth staying with." />
+  <title>Simple Minds Studios — Spatial Habitats</title>
+  <meta name="description" content="Simple Minds Studios designs thinking environments. An interactive spatial map of connected ideas across research, design, film, fashion, music, and civic imagination." />
   <link rel="canonical" href="https://simplemindsstudios.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://simplemindsstudios.com/" />
-  <meta property="og:title" content="Simple Minds Studios — A Spatial Habitat" />
+  <meta property="og:title" content="Simple Minds Studios — Spatial Habitats" />
   <meta property="og:description" content="We rarely need more information. We often need better environments in which to encounter it." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --deep:#0B0A14;--void:#110d1f;--mauve:#7d5e8a;--blush:#c4a0b4;--cyan:#5bcfef;--amber:#C9A86A;
-      --white:#fff;--ink:rgba(255,255,255,.94);--muted:rgba(255,255,255,.68);--soft:rgba(255,255,255,.44);
+      --deep:#0B0A14;--slate:#0A0E1A;--navy:#05060D;--mauve:#7d5e8a;--blush:#c4a0b4;--cyan:#5bcfef;--amber:#C9A86A;--violet:#8B7FA8;
+      --white:#fff;--ink:rgba(255,255,255,.82);--muted:rgba(255,255,255,.62);--soft:rgba(255,255,255,.40);
       --glass:rgba(255,255,255,.06);--border:rgba(255,255,255,.14);--border-strong:rgba(255,255,255,.22);
       --shadow:0 30px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06) inset;
       --display:'Playfair Display',Georgia,serif;--body:'DM Sans',system-ui,sans-serif;--mono:'Fira Code',monospace;
       --radius-pill:999px;--radius-xl:30px;--radius-lg:24px;
     }
     *{box-sizing:border-box}html{scroll-behavior:smooth}
-    body{margin:0;background:var(--deep);color:var(--ink);font-family:var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    body{margin:0;background:var(--navy);color:var(--ink);font-family:var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
     a{color:inherit}
-    .scene{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(60% 60% at 18% 14%,rgba(125,94,138,.28),transparent 60%),radial-gradient(50% 50% at 86% 78%,rgba(91,207,239,.18),transparent 55%),linear-gradient(145deg,#0B0A14 0%,#120d20 52%,#0B0A14 100%)}
-    .shape{position:absolute;left:50%;top:42%;width:min(62vw,720px);aspect-ratio:1;transform:translate(-50%,-50%);filter:drop-shadow(0 0 80px rgba(91,207,239,.18));animation:drift 28s ease-in-out infinite alternate}
-    .shape:before,.shape:after{content:"";position:absolute;inset:12%;border:1px solid rgba(255,255,255,.16);border-radius:39% 61% 52% 48% / 47% 36% 64% 53%;transform:rotate(18deg)}
-    .shape:after{inset:25%;border-color:rgba(91,207,239,.28);transform:rotate(-34deg)}
+    /* Atmosphere — Calm Michigan lakeshore, mist, pine silhouettes, horizon glow */
+    .scene{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:
+      radial-gradient(120% 80% at 50% 110%,rgba(201,168,106,.08),transparent 60%),
+      radial-gradient(60% 60% at 18% 14%,rgba(125,94,138,.22),transparent 60%),
+      radial-gradient(50% 50% at 86% 78%,rgba(91,207,239,.14),transparent 55%),
+      linear-gradient(180deg,var(--navy) 0%,var(--slate) 45%,var(--deep) 100%)}
+    .scene:before{content:"";position:absolute;inset:0;background:radial-gradient(140% 100% at 50% 0%,rgba(255,255,255,.04),transparent 50%);mix-blend-mode:screen}
+    .scene:after{content:"";position:absolute;inset:-25%;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:80px 80px;transform:rotate(-8deg);mask-image:radial-gradient(circle at center,#000,transparent 72%);opacity:.6}
+    /* Spatial observatory shape + constellation */
+    .shape{position:absolute;left:50%;top:42%;width:min(62vw,720px);aspect-ratio:1;transform:translate(-50%,-50%);filter:drop-shadow(0 0 80px rgba(91,207,239,.15));animation:drift 32s ease-in-out infinite alternate}
+    .shape:before,.shape:after{content:"";position:absolute;inset:12%;border:1px solid rgba(255,255,255,.12);border-radius:39% 61% 52% 48% / 47% 36% 64% 53%;transform:rotate(18deg)}
+    .shape:after{inset:25%;border-color:rgba(91,207,239,.22);transform:rotate(-34deg)}
     @keyframes drift{to{transform:translate(-50%,-48%) rotate(6deg) scale(1.04)}}
-    .glass{background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.04));border:1px solid var(--border);box-shadow:var(--shadow);backdrop-filter:blur(28px) saturate(1.3);-webkit-backdrop-filter:blur(28px) saturate(1.3);transition:transform .35s ease,border-color .35s ease}
+    .constellation{position:absolute;inset:0;pointer-events:none;opacity:.7}
+    .constellation line{stroke:rgba(255,255,255,.08);stroke-width:.5}
+    .constellation circle{fill:rgba(255,255,255,.18)}
+    .constellation .node{fill:var(--cyan);opacity:.6}
+    .constellation .pulse{fill:var(--amber);animation:pulse 4s ease-in-out infinite}
+    @keyframes pulse{0%,100%{r:1.5;opacity:.3}50%{r:3;opacity:.8}}
+    /* Liquid Glass primitives */
+    .glass{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid var(--border);box-shadow:var(--shadow);backdrop-filter:blur(28px) saturate(1.3);-webkit-backdrop-filter:blur(28px) saturate(1.3);transition:transform .35s ease,border-color .35s ease}
     .glass:hover{border-color:var(--border-strong);transform:translateY(-2px)}
     .wrap{width:min(1240px,calc(100% - 40px));margin:auto;position:relative;z-index:2}
     .topbar{position:fixed;inset:0 0 auto;z-index:30;padding:16px 0}
-    .nav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:12px 22px;border-radius:var(--radius-pill);background:rgba(11,10,20,.55);border:1px solid var(--border);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4)}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:12px 22px;border-radius:var(--radius-pill);background:rgba(5,6,13,.55);border:1px solid var(--border);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4)}
     .brand{font-weight:700;text-decoration:none}.brand span{color:var(--cyan)}
     .navlinks{display:flex;gap:18px;flex-wrap:wrap}.navlinks a{font:500 .62rem var(--mono);text-decoration:none;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+    .sound-toggle{display:flex;gap:8px;align-items:center}
+    .sound-toggle button{font:500 .58rem var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--soft);background:transparent;border:1px solid var(--border);border-radius:var(--radius-pill);padding:6px 10px;cursor:pointer}
+    .sound-toggle button.active{color:var(--cyan);border-color:var(--cyan)}
+    /* Threshold / Hero */
     .threshold{min-height:100svh;display:grid;place-items:center;text-align:center;padding:132px 0 80px}
     .threshold-inner{max-width:980px}
     .eyebrow,.label,.kicker,.status,.room-number{font:500 .65rem var(--mono);text-transform:uppercase;letter-spacing:.18em}
@@ -48,15 +67,22 @@
     h3{font-size:clamp(1.6rem,2.8vw,2.4rem);margin-bottom:10px}
     .sub{font-size:clamp(1rem,2vw,1.18rem);line-height:1.8;color:var(--muted);max-width:72ch}
     .threshold .sub{margin-inline:auto;max-width:62ch}
-    .thesis{margin:28px auto 0;max-width:56ch;padding:18px 22px;border-radius:var(--radius-pill);font-size:clamp(.95rem,1.6vw,1.08rem);line-height:1.6;color:var(--ink);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid var(--border);backdrop-filter:blur(18px)}
+    .architecture{margin:28px auto 0;max-width:52ch;padding:22px 26px;border-radius:var(--radius-lg);font-size:clamp(.85rem,1.4vw,1rem);line-height:1.8;color:var(--muted);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--border);backdrop-filter:blur(18px);text-align:left}
+    .architecture .line{display:block;padding:4px 0}.architecture .indent{padding-left:20px;opacity:.85}.architecture .arrow{color:var(--amber);opacity:.6}
+    .thesis{margin:24px auto 0;max-width:56ch;padding:18px 22px;border-radius:var(--radius-pill);font-size:clamp(.95rem,1.6vw,1.08rem);line-height:1.6;color:var(--ink);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid var(--border);backdrop-filter:blur(18px)}
     .enter{display:inline-flex;align-items:center;gap:12px;margin-top:32px;padding:14px 22px;border:1px solid var(--border);border-radius:var(--radius-pill);text-decoration:none;font:500 .66rem var(--mono);letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.06)}
     .hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font:500 .58rem var(--mono);text-transform:uppercase;letter-spacing:.16em;color:var(--soft)}
+    /* Sections */
     .section{padding:110px 0 30px}.section-head{margin-bottom:38px}
+    .doctrine{max-width:70ch;margin:0 auto 60px;padding:40px;border-radius:var(--radius-xl)}
+    .doctrine p{color:var(--muted);line-height:1.9;font-size:1.05rem;margin:0 0 18px}
+    .doctrine .modes{display:flex;gap:14px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+    .doctrine .mode{font:500 .62rem var(--mono);text-transform:uppercase;letter-spacing:.14em;padding:8px 16px;border:1px solid var(--border);border-radius:var(--radius-pill);color:var(--cyan)}
     .rooms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
     .room{position:relative;min-height:390px;padding:38px;border-radius:var(--radius-xl);display:flex;flex-direction:column;text-decoration:none;overflow:hidden}
     .room p{color:var(--muted);line-height:1.75}
     .room .status{margin-top:auto;padding-top:34px;color:var(--soft)}
-    .room.featured{grid-column:1/-1;min-height:480px;justify-content:flex-end;background:linear-gradient(120deg,rgba(125,94,138,.20),rgba(91,207,239,.08))}
+    .room.featured{grid-column:1/-1;min-height:480px;justify-content:flex-end;background:linear-gradient(120deg,rgba(125,94,138,.16),rgba(91,207,239,.06))}
     .questions{display:grid;gap:1px;border-top:1px solid var(--border)}
     .question{display:grid;grid-template-columns:110px 1fr auto;gap:24px;align-items:center;padding:28px 8px;border-bottom:1px solid var(--border);text-decoration:none}
     .qtext{font:italic clamp(1.35rem,3vw,2.35rem) var(--display)}
@@ -75,7 +101,7 @@
     .descent{display:grid;grid-template-columns:1fr 2fr 1fr;gap:24px;margin-top:48px}
     .spine{position:relative;padding-left:24px;border-left:1px solid var(--border)}
     .node{padding:16px 0;position:relative}
-    .node::before{content:"";position:absolute;left:-29px;top:24px;width:10px;height:10px;border-radius:50%;background:var(--deep);border:1.5px solid var(--border)}
+    .node::before{content:"";position:absolute;left:-29px;top:24px;width:10px;height:10px;border-radius:50%;background:var(--navy);border:1.5px solid var(--border)}
     .node.current::before{background:var(--amber);border-color:var(--amber);box-shadow:0 0 0 4px rgba(201,168,106,.25)}
     .node .name{font-family:var(--display);font-size:19px}
     .node .meta{font-size:11px;color:var(--muted);margin-top:4px}
@@ -85,22 +111,71 @@
   </style>
 </head>
 <body>
-  <div class="scene"><div class="shape"></div></div>
-  <div class="topbar"><div class="wrap"><nav class="nav"><a class="brand" href="#top">Simple Minds<span>.</span></a><div class="navlinks"><a href="#rooms">Rooms</a><a href="#questions">Questions</a><a href="#collection">Collection</a><a href="#principles">Principles</a><a href="#contact">Contact</a></div></nav></div></div>
+  <div class="scene">
+    <div class="shape"></div>
+    <svg class="constellation" viewBox="0 0 1240 800" preserveAspectRatio="xMidYMid slice">
+      <line x1="200" y1="200" x2="400" y2="300"/>
+      <line x1="400" y1="300" x2="620" y2="280"/>
+      <line x1="620" y1="280" x2="840" y2="350"/>
+      <line x1="840" y1="350" x2="1020" y2="300"/>
+      <line x1="300" y1="450" x2="500" y2="520"/>
+      <line x1="500" y1="520" x2="740" y2="500"/>
+      <line x1="740" y1="500" x2="920" y2="580"/>
+      <circle cx="200" cy="200" r="1.5" class="node"/>
+      <circle cx="400" cy="300" r="2" class="node"/>
+      <circle cx="620" cy="280" r="2.5" class="node pulse"/>
+      <circle cx="840" cy="350" r="1.5" class="node"/>
+      <circle cx="1020" cy="300" r="1.5" class="node"/>
+      <circle cx="300" cy="450" r="1.5"/>
+      <circle cx="500" cy="520" r="2"/>
+      <circle cx="740" cy="500" r="2"/>
+      <circle cx="920" cy="580" r="1.5"/>
+    </svg>
+  </div>
+  <div class="topbar"><div class="wrap"><nav class="nav"><a class="brand" href="#top">Simple Minds<span>.</span></a><div class="navlinks"><a href="#rooms">Rooms</a><a href="#questions">Questions</a><a href="#collection">Collection</a><a href="#principles">Principles</a><a href="#contact">Contact</a></div><div class="sound-toggle"><button data-sound="water">water</button><button data-sound="wind">wind</button><button data-sound="footsteps">footsteps</button></div></nav></div></div>
   <main id="top">
     <section class="threshold wrap">
       <div class="threshold-inner">
-        <span class="eyebrow">Simple Minds Studios / Hart, Michigan</span>
-        <h1>A PLACE FOR<br><em>questions.</em></h1>
+        <span class="eyebrow">Simple Minds Studios: Spatial Habitats</span>
+        <h1>A PLACE FOR<br><em>QUESTIONS.</em></h1>
         <p class="sub">A living digital cultural space for research, design, film, fashion, music, civic imagination, and the ideas that become more interesting when we stay with them.</p>
+        <div class="architecture">
+          <span class="line">Simple Minds Studios</span>
+          <span class="line arrow">↓</span>
+          <span class="line indent">Thinking Clearer — Spatial Habitat</span>
+          <span class="line arrow indent">↓</span>
+          <span class="line indent">Low Visibility — Spatial Habitat</span>
+          <span class="line arrow indent">↓</span>
+          <span class="line indent">Architecture of Witnessing</span>
+          <span class="line arrow indent">↓</span>
+          <span class="line indent">Found Henge</span>
+          <span class="line arrow indent">↓</span>
+          <span class="line indent">Oliver Studies</span>
+          <span class="line arrow indent">↓</span>
+          <span class="line indent">Future Civic Imagination</span>
+          <span class="line arrow indent">↓</span>
+          <span class="line indent">Mission Lantern</span>
+        </div>
         <div class="thesis">“We rarely need more information. We often need better environments in which to encounter it.”</div>
-        <a class="enter" href="#rooms">Come explore with us ↓</a>
+        <a class="enter" href="#doctrine">Come explore with us ↓</a>
       </div>
       <div class="hint">Curiosity → orientation → exploration → reflection</div>
     </section>
 
+    <section id="doctrine" class="section wrap">
+      <article class="doctrine glass">
+        <p>Thinking Clearer began as a podcast. Then it became a podcast with a website. Then it became connected to research papers, photography, museum concepts, AI collaboration, interactive design, film, ordinary life, and Simple Minds Studios.</p>
+        <p>For a time, these appeared to be separate projects orbiting the same interests.</p>
+        <p>The Spatial Habitat suggests something more coherent: They were never separate destinations. They were pieces of a larger architecture.</p>
+        <p><strong>The Spatial Habitat is not merely a user interface. It is not a dashboard. It is not simply a website. It is the first visual expression of a thinking environment.</strong></p>
+        <p>Instead of organizing information, it organizes relationships.<br>Instead of rewarding speed, it encourages attention.<br>Instead of asking what task you want to perform, it asks how you want to approach an idea:</p>
+        <div class="modes"><span class="mode">Focus</span><span class="mode">Analysis</span><span class="mode">Synthesis</span></div>
+        <p style="margin-top:24px;opacity:.7">These are not product features. They are modes of thought.</p>
+      </article>
+    </section>
+
     <section id="descent" class="section wrap">
-      <div class="section-head"><span class="label">THE DESCENT</span><h2>Through <em>Architectures</em></h2><p class="sub">When we began, Thinking Clearer was a podcast. Then a podcast with a website. Then connected to research papers, photography, museum ideas, AI collaboration. For a while they felt like separate threads. The Spatial Habitat suggests none were the destination. They were pieces of a larger architecture.</p></div>
+      <div class="section-head"><span class="label">THE DESCENT</span><h2>Through <em>Architectures</em></h2></div>
       <div class="descent"><div></div><div class="spine">
         <div class="node"><div class="name">Thinking Clearer</div><div class="meta">Podcast as doorway — What are we actually doing when we think?</div></div><div class="arrow">↓</div>
         <div class="node current"><div class="name">Spatial Habitat</div><div class="meta">CURRENT ARTIFACT — First visual expression of a thinking environment — you are here.</div><span class="tag">Focus / Analysis / Synthesis</span></div><div class="arrow">↓</div>
@@ -156,7 +231,7 @@
       <div class="section-head"><span class="label">Editorial Principles</span><h2>Wonder, with <em>standards.</em></h2></div>
       <div class="principles">
         <article class="panel glass"><h3>Simple Minds Studios</h3><p>The studio is not organized around a single medium. It is organized around a way of thinking: notice what is difficult to understand, stay curious long enough to see its structure, and make that structure visible.</p><p>We'd rather be curious than certain. That's a more disciplined kind of attention. We rarely need more information. We often need better environments in which to encounter it.</p></article>
-        <article class="panel glass"><span class="kicker">The working principle</span><h3>Making things make sense.</h3><p>Artificial intelligence is used as a cognitive and creative tool: to challenge assumptions, clarify thought, connect ideas, prototype possibilities, and expand what one person can investigate and build.</p><p class="note">Selected projects may include credited collaborators, technical partners, and contributions from multiple AI systems.</p></article>
+        <article class="panel glass"><span class="kicker">The working principle</span><h3>Making things make sense.</h3><p>Artificial intelligence is used as a cognitive and creative tool: to challenge assumptions, clarify thought, connect ideas, prototype possibilities, and expand what one person can investigate and build.</p><p class="note">Simple Minds Studios designs environments where ideas can be encountered, questioned, connected, revised, and lived with over time.</p></article>
       </div>
     </section>
 
