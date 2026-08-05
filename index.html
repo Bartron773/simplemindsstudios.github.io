@@ -1,268 +1,873 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="dark">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8QL1DX6CTL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Simple Minds Studios is a spatial habitat for questions, research, design, visual culture, civic imagination, and work that becomes more interesting when we stay with it.">
+  <meta name="theme-color" content="#0E0E0E">
+  <meta name="color-scheme" content="dark">
 
-  gtag('config', 'G-8QL1DX6CTL');
-</script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Simple Minds Studios — Spatial Habitats</title>
-  <meta name="description" content="Simple Minds Studios designs thinking environments. An interactive spatial map of connected ideas across research, design, film, fashion, music, and civic imagination." />
-  <link rel="canonical" href="https://simplemindsstudios.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://simplemindsstudios.com/" />
-  <meta property="og:title" content="Simple Minds Studios — Spatial Habitats" />
-  <meta property="og:description" content="We rarely need more information. We often need better environments in which to encounter it." />
-  <meta property="og:image" content="https://github.com/Bartron773/simplemindsstudios.github.io/images/cover.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <meta property="og:title" content="Simple Minds Studios: Spatial Habitats">
+  <meta property="og:description" content="A place for questions, artifacts, research, visual culture, and civic imagination.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/social-preview.jpg">
+  <link rel="canonical" href="https://simplemindsstudios.com/">
+
+  <title>Simple Minds Studios: Spatial Habitats</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --deep:#0B0A14;--slate:#0A0E1A;--navy:#05060D;--mauve:#7d5e8a;--blush:#c4a0b4;--cyan:#5bcfef;--amber:#C9A86A;--violet:#8B7FA8;
-      --white:#fff;--ink:rgba(255,255,255,.82);--muted:rgba(255,255,255,.62);--soft:rgba(255,255,255,.40);
-      --glass:rgba(255,255,255,.06);--border:rgba(255,255,255,.14);--border-strong:rgba(255,255,255,.22);
-      --shadow:0 30px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06) inset;
-      --display:'Playfair Display',Georgia,serif;--body:'DM Sans',system-ui,sans-serif;--mono:'Fira Code',monospace;
-      --radius-pill:999px;--radius-xl:30px;--radius-lg:24px;
+    :root {
+      --carbon: #0E0E0E;
+      --surface: #171717;
+      --surface-raised: #202020;
+      --surface-high: #2A2A2A;
+      --paper: #F5F5F5;
+      --text: #E5E2E1;
+      --text-soft: #B5B3B2;
+      --muted: #858585;
+      --line: rgba(245,245,245,.12);
+      --line-strong: rgba(245,245,245,.2);
+      --cobalt: #2E5BFF;
+      --edge: clamp(1.5rem, 4vw, 4rem);
+      --section: clamp(6rem, 11vw, 10rem);
+      --radius: .5rem;
+      --shadow: 0 18px 50px rgba(0,0,0,.28);
     }
-    *{box-sizing:border-box}html{scroll-behavior:smooth}
-    body{margin:0;background:var(--navy);color:var(--ink);font-family:var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-    a{color:inherit}
-    /* Atmosphere — Calm Michigan lakeshore, mist, pine silhouettes, horizon glow */
-    .scene{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:
-      radial-gradient(120% 80% at 50% 110%,rgba(201,168,106,.08),transparent 60%),
-      radial-gradient(60% 60% at 18% 14%,rgba(125,94,138,.22),transparent 60%),
-      radial-gradient(50% 50% at 86% 78%,rgba(91,207,239,.14),transparent 55%),
-      linear-gradient(180deg,var(--navy) 0%,var(--slate) 45%,var(--deep) 100%)}
-    .scene:before{content:"";position:absolute;inset:0;background:radial-gradient(140% 100% at 50% 0%,rgba(255,255,255,.04),transparent 50%);mix-blend-mode:screen}
-    .scene:after{content:"";position:absolute;inset:-25%;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:80px 80px;transform:rotate(-8deg);mask-image:radial-gradient(circle at center,#000,transparent 72%);opacity:.6}
-    /* Spatial observatory shape + constellation */
-    .shape{position:absolute;left:50%;top:42%;width:min(62vw,720px);aspect-ratio:1;transform:translate(-50%,-50%);filter:drop-shadow(0 0 80px rgba(91,207,239,.15));animation:drift 32s ease-in-out infinite alternate}
-    .shape:before,.shape:after{content:"";position:absolute;inset:12%;border:1px solid rgba(255,255,255,.12);border-radius:39% 61% 52% 48% / 47% 36% 64% 53%;transform:rotate(18deg)}
-    .shape:after{inset:25%;border-color:rgba(91,207,239,.22);transform:rotate(-34deg)}
-    @keyframes drift{to{transform:translate(-50%,-48%) rotate(6deg) scale(1.04)}}
-    .constellation{position:absolute;inset:0;pointer-events:none;opacity:.7}
-    .constellation line{stroke:rgba(255,255,255,.08);stroke-width:.5}
-    .constellation circle{fill:rgba(255,255,255,.18)}
-    .constellation .node{fill:var(--cyan);opacity:.6}
-    .constellation .pulse{fill:var(--amber);animation:pulse 4s ease-in-out infinite}
-    @keyframes pulse{0%,100%{r:1.5;opacity:.3}50%{r:3;opacity:.8}}
-    /* Liquid Glass primitives */
-    .glass{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid var(--border);box-shadow:var(--shadow);backdrop-filter:blur(28px) saturate(1.3);-webkit-backdrop-filter:blur(28px) saturate(1.3);transition:transform .35s ease,border-color .35s ease}
-    .glass:hover{border-color:var(--border-strong);transform:translateY(-2px)}
-    .wrap{width:min(1240px,calc(100% - 40px));margin:auto;position:relative;z-index:2}
-    .topbar{position:fixed;inset:0 0 auto;z-index:30;padding:16px 0}
-    .nav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:12px 22px;border-radius:var(--radius-pill);background:rgba(5,6,13,.55);border:1px solid var(--border);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4)}
-    .brand{font-weight:700;text-decoration:none}.brand span{color:var(--cyan)}
-    .navlinks{display:flex;gap:18px;flex-wrap:wrap}.navlinks a{font:500 .62rem var(--mono);text-decoration:none;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
-    .sound-toggle{display:flex;gap:8px;align-items:center}
-    .sound-toggle button{font:500 .58rem var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--soft);background:transparent;border:1px solid var(--border);border-radius:var(--radius-pill);padding:6px 10px;cursor:pointer}
-    .sound-toggle button.active{color:var(--cyan);border-color:var(--cyan)}
-    /* Threshold / Hero */
-    .threshold{min-height:100svh;display:grid;place-items:center;text-align:center;padding:132px 0 80px}
-    .threshold-inner{max-width:980px}
-    .eyebrow,.label,.kicker,.status,.room-number{font:500 .65rem var(--mono);text-transform:uppercase;letter-spacing:.18em}
-    .eyebrow,.label,.kicker,.room-number{color:var(--cyan)}
-    h1,h2,h3{font-family:var(--display);margin-top:0}
-    h1{font-size:clamp(3.2rem,10vw,9rem);line-height:.84;letter-spacing:-.065em;margin:24px 0 22px}
-    h1 em,h2 em{font-weight:400;color:var(--blush)}
-    h2{font-size:clamp(2.4rem,6vw,5.5rem);line-height:.95;letter-spacing:-.05em;margin-bottom:18px}
-    h3{font-size:clamp(1.6rem,2.8vw,2.4rem);margin-bottom:10px}
-    .sub{font-size:clamp(1rem,2vw,1.18rem);line-height:1.8;color:var(--muted);max-width:72ch}
-    .threshold .sub{margin-inline:auto;max-width:62ch}
-    .architecture{margin:28px auto 0;max-width:52ch;padding:22px 26px;border-radius:var(--radius-lg);font-size:clamp(.85rem,1.4vw,1rem);line-height:1.8;color:var(--muted);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--border);backdrop-filter:blur(18px);text-align:left}
-    .architecture .line{display:block;padding:4px 0}.architecture .indent{padding-left:20px;opacity:.85}.architecture .arrow{color:var(--amber);opacity:.6}
-    .thesis{margin:24px auto 0;max-width:56ch;padding:18px 22px;border-radius:var(--radius-pill);font-size:clamp(.95rem,1.6vw,1.08rem);line-height:1.6;color:var(--ink);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid var(--border);backdrop-filter:blur(18px)}
-    .enter{display:inline-flex;align-items:center;gap:12px;margin-top:32px;padding:14px 22px;border:1px solid var(--border);border-radius:var(--radius-pill);text-decoration:none;font:500 .66rem var(--mono);letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.06)}
-    .hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font:500 .58rem var(--mono);text-transform:uppercase;letter-spacing:.16em;color:var(--soft)}
-    /* Sections */
-    .section{padding:110px 0 30px}.section-head{margin-bottom:38px}
-    .doctrine{max-width:70ch;margin:0 auto 60px;padding:40px;border-radius:var(--radius-xl)}
-    .doctrine p{color:var(--muted);line-height:1.9;font-size:1.05rem;margin:0 0 18px}
-    .doctrine .modes{display:flex;gap:14px;justify-content:center;margin-top:24px;flex-wrap:wrap}
-    .doctrine .mode{font:500 .62rem var(--mono);text-transform:uppercase;letter-spacing:.14em;padding:8px 16px;border:1px solid var(--border);border-radius:var(--radius-pill);color:var(--cyan)}
-    .rooms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
-    .room{position:relative;min-height:390px;padding:38px;border-radius:var(--radius-xl);display:flex;flex-direction:column;text-decoration:none;overflow:hidden}
-    .room p{color:var(--muted);line-height:1.75}
-    .room .status{margin-top:auto;padding-top:34px;color:var(--soft)}
-    .room.featured{grid-column:1/-1;min-height:480px;justify-content:flex-end;background:linear-gradient(120deg,rgba(125,94,138,.16),rgba(91,207,239,.06))}
-    .questions{display:grid;gap:1px;border-top:1px solid var(--border)}
-    .question{display:grid;grid-template-columns:110px 1fr auto;gap:24px;align-items:center;padding:28px 8px;border-bottom:1px solid var(--border);text-decoration:none}
-    .qtext{font:italic clamp(1.35rem,3vw,2.35rem) var(--display)}
-    .qmeta{font:500 .58rem var(--mono);color:var(--soft);text-transform:uppercase}
-    .collection{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-    .card{padding:28px;border-radius:var(--radius-lg);display:flex;flex-direction:column;min-height:315px}
-    .card p{color:var(--muted);line-height:1.7}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;padding-top:14px;margin-top:auto}
-    .button{display:inline-block;text-decoration:none;border:1px solid var(--border);border-radius:var(--radius-pill);padding:11px 17px;font:500 .62rem var(--mono);text-transform:uppercase;background:rgba(255,255,255,.04)}
-    .button.primary{background:rgba(255,255,255,.92);color:#0B0A14}
-    .principles{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
-    .panel{padding:clamp(30px,5vw,54px);border-radius:var(--radius-xl)}
-    .panel p{color:var(--muted);line-height:1.8}
-    .note{border-left:2px solid var(--cyan);padding-left:20px;color:var(--muted);font-style:italic}
-    .footer{padding:110px 0 48px}.fine{font:500 .61rem var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--soft);line-height:1.9}
-    .descent{display:grid;grid-template-columns:1fr 2fr 1fr;gap:24px;margin-top:48px}
-    .spine{position:relative;padding-left:24px;border-left:1px solid var(--border)}
-    .node{padding:16px 0;position:relative}
-    .node::before{content:"";position:absolute;left:-29px;top:24px;width:10px;height:10px;border-radius:50%;background:var(--navy);border:1.5px solid var(--border)}
-    .node.current::before{background:var(--amber);border-color:var(--amber);box-shadow:0 0 0 4px rgba(201,168,106,.25)}
-    .node .name{font-family:var(--display);font-size:19px}
-    .node .meta{font-size:11px;color:var(--muted);margin-top:4px}
-    .node .tag{display:inline-block;margin-top:8px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:var(--glass);border:1px solid var(--border);border-radius:var(--radius-pill);padding:5px 10px}
-    .arrow{padding:2px 0 2px 24px;color:var(--cyan);font-size:12px;opacity:.7}
-    @media(max-width:900px){.navlinks{display:none}.rooms,.collection,.principles,.descent{grid-template-columns:1fr}.room.featured{grid-column:auto}}
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      background: var(--carbon);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { color: inherit; }
+    ::selection { background: var(--cobalt); color: var(--paper); }
+
+    .skip-link {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1000;
+      transform: translateY(-180%);
+      padding: .8rem 1rem;
+      background: var(--paper);
+      color: var(--carbon);
+      text-decoration: none;
+      transition: transform .2s ease;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .shell { position: relative; z-index: 2; }
+    .page-section {
+      padding: var(--section) var(--edge);
+      border-top: 1px solid var(--line);
+    }
+    .eyebrow {
+      margin: 0 0 1rem;
+      font: 500 .72rem/1.3 "JetBrains Mono", monospace;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .display {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 8vw, 5.25rem);
+      font-weight: 700;
+      line-height: .92;
+      letter-spacing: -.035em;
+      color: var(--paper);
+    }
+    .headline {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--paper);
+    }
+    .headline-sm {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.55rem, 3vw, 2rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--paper);
+    }
+    .body-lg { font-size: clamp(1rem, 1.6vw, 1.15rem); line-height: 1.7; color: var(--text-soft); }
+    .body { font-size: 1rem; line-height: 1.6; color: var(--text-soft); }
+    .mono { font: 400 .86rem/1.5 "JetBrains Mono", monospace; color: var(--muted); }
+    .italic { font-style: italic; }
+    .cobalt { color: var(--cobalt); }
+
+    /* Intro */
+    .intro-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: grid;
+      place-items: center;
+      background: var(--carbon);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition: opacity 1.4s ease, visibility 0s linear 1.4s;
+    }
+    .intro-screen.is-leaving {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .intro-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 8vw, 5.25rem);
+      font-weight: 700;
+      line-height: .92;
+      letter-spacing: -.035em;
+      color: var(--paper);
+    }
+    .intro-title em { color: var(--cobalt); font-weight: 400; }
+
+    /* Shader background */
+    .shader-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    #shader-canvas { width: 100%; height: 100%; display: block; }
+
+    /* Nav */
+    .site-nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      height: 4rem;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 1rem;
+      padding: 0 var(--edge);
+      border-bottom: 1px solid var(--line);
+      background: rgba(14,14,14,.78);
+      backdrop-filter: blur(18px);
+      transition: background .25s ease, border-color .25s ease;
+    }
+    .site-nav.is-scrolled { background: rgba(14,14,14,.95); border-color: var(--line-strong); }
+    .brand {
+      justify-self: start;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.25rem, 2.2vw, 2rem);
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: -.025em;
+      color: var(--paper);
+    }
+    .brand:hover { color: var(--cobalt); }
+    .desktop-links { display: flex; gap: 1.5rem; }
+    .desktop-links a,
+    .footer-nav a,
+    .utility-link {
+      font: 500 .72rem/1.3 "JetBrains Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    .desktop-links a:hover,
+    .footer-nav a:hover,
+    .utility-link:hover { color: var(--paper); }
+    .nav-actions { justify-self: end; display: flex; align-items: center; gap: .5rem; }
+    .icon-button {
+      display: inline-grid;
+      place-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 1px solid transparent;
+      background: transparent;
+      cursor: pointer;
+      border-radius: .25rem;
+    }
+    .icon-button:hover { border-color: var(--line-strong); color: var(--cobalt); }
+    .menu-button { display: none; }
+
+    .mobile-menu {
+      position: fixed;
+      z-index: 90;
+      top: 4rem;
+      left: 0;
+      right: 0;
+      display: none;
+      padding: 1.5rem var(--edge) 2rem;
+      border-bottom: 1px solid var(--line);
+      background: rgba(14,14,14,.97);
+      backdrop-filter: blur(18px);
+    }
+    .mobile-menu.is-open { display: block; }
+    .mobile-menu nav { display: flex; flex-direction: column; gap: 1rem; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      padding: 7rem var(--edge) 4rem;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-inner { width: min(100%, 58rem); display: flex; flex-direction: column; align-items: center; gap: 1.6rem; }
+    .hero-copy { max-width: 43rem; margin: 1.5rem auto 0; }
+    .threshold-cue {
+      margin-top: clamp(4rem, 10vw, 10rem);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .8rem;
+      color: var(--muted);
+      animation: thresholdDrift 2.4s ease-in-out 1.5s 2;
+    }
+    @keyframes thresholdDrift {
+      0%, 100% { transform: translateY(0); opacity: .55; }
+      50% { transform: translateY(6px); opacity: 1; }
+    }
+
+    /* Layout */
+    .split { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(2rem, 5vw, 5rem); }
+    .descent { position: relative; display: flex; flex-direction: column; gap: 2rem; }
+    .descent::before {
+      content: "";
+      position: absolute;
+      left: .23rem;
+      top: .5rem;
+      bottom: .5rem;
+      width: 1px;
+      background: var(--line);
+    }
+    .descent-item { position: relative; display: grid; grid-template-columns: 1rem minmax(0,1fr); gap: 1rem; align-items: start; }
+    .node { width: .5rem; height: .5rem; margin-top: .65rem; border-radius: 50%; background: var(--muted); z-index: 1; }
+    .node.active { background: var(--cobalt); box-shadow: 0 0 14px rgba(46,91,255,.65); }
+    .artifact {
+      border: 1px solid var(--line);
+      background: rgba(23,23,23,.62);
+      backdrop-filter: blur(12px);
+      padding: 1.5rem;
+      max-width: 36rem;
+    }
+    .pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+    .pill { padding: .35rem .55rem; border: 1px solid var(--line); font: 400 .82rem/1.2 "JetBrains Mono", monospace; color: var(--muted); }
+    .pill.active { background: var(--surface-high); color: var(--paper); }
+
+    .section-head { max-width: 44rem; margin-bottom: 3rem; }
+    .section-head .body { margin-top: 1.25rem; }
+
+    .rooms-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; }
+    .stack { display: grid; gap: 1.5rem; }
+    .card {
+      border: 1px solid var(--line);
+      background: rgba(23,23,23,.82);
+      padding: clamp(1.5rem, 3vw, 2rem);
+      min-height: 14rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      transition: border-color .2s ease, transform .2s ease, background .2s ease;
+    }
+    .card.large { min-height: 25rem; }
+    .card:hover { border-color: var(--paper); background: rgba(32,32,32,.9); }
+    .card:hover .headline, .card:hover .headline-sm { color: var(--cobalt); }
+    .card-footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font: 500 .72rem/1.3 "JetBrains Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .questions { background: rgba(10,10,10,.72); }
+    .question-row {
+      display: grid;
+      grid-template-columns: auto minmax(0,1fr) auto;
+      gap: 2rem;
+      align-items: baseline;
+      padding: 2rem 1rem;
+      margin: 0 -1rem;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+      transition: background .2s ease;
+    }
+    .question-row:hover { background: rgba(23,23,23,.7); }
+    .question-row:hover .question-title { color: var(--cobalt); }
+    .question-title { font-family: "Playfair Display", serif; font-size: clamp(1.55rem,3vw,2rem); line-height: 1.18; color: var(--paper); }
+
+    .project-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.5rem; }
+    .project-card {
+      min-height: 19rem;
+      padding: 1.5rem;
+      border: 1px solid var(--line);
+      background: rgba(23,23,23,.82);
+      display: flex;
+      flex-direction: column;
+      transition: border-color .2s ease, background .2s ease;
+    }
+    .project-card:hover { border-color: var(--muted); background: rgba(32,32,32,.88); }
+    .project-card .body { flex: 1; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+    .project-links a { font: 400 .86rem/1.4 "JetBrains Mono", monospace; color: var(--muted); }
+    .project-links a:hover { color: var(--paper); }
+    .project-links .live { color: var(--cobalt); text-decoration: none; }
+
+    .principles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,5rem); }
+    .principle-panel { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: clamp(5rem,9vw,7rem) var(--edge);
+    }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .footer-nav { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 3rem; justify-self: end; }
+    .footer-nav div { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .credits { margin-top: 2rem; display: flex; flex-direction: column; gap: .2rem; }
+    .copyright { margin-top: 2rem; }
+
+    .focusable:focus-visible,
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--cobalt);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 980px) {
+      .site-nav { grid-template-columns: 1fr auto; }
+      .desktop-links { display: none; }
+      .menu-button { display: inline-grid; }
+      .split, .principles-grid, .footer-grid { grid-template-columns: 1fr; }
+      .rooms-grid { grid-template-columns: 1fr; }
+      .project-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .footer-nav { justify-self: start; }
+    }
+
+    @media (max-width: 680px) {
+      .question-row { grid-template-columns: 1fr; gap: .75rem; }
+      .project-grid { grid-template-columns: 1fr; }
+      .footer-nav { grid-template-columns: 1fr 1fr; width: 100%; }
+      .card-footer { flex-direction: column; align-items: flex-start; }
+      .descent::before { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .intro-screen { display: none; }
+    }
   </style>
 </head>
-<body>
-  <div class="scene">
-    <div class="shape"></div>
-    <svg class="constellation" viewBox="0 0 1240 800" preserveAspectRatio="xMidYMid slice">
-      <line x1="200" y1="200" x2="400" y2="300"/>
-      <line x1="400" y1="300" x2="620" y2="280"/>
-      <line x1="620" y1="280" x2="840" y2="350"/>
-      <line x1="840" y1="350" x2="1020" y2="300"/>
-      <line x1="300" y1="450" x2="500" y2="520"/>
-      <line x1="500" y1="520" x2="740" y2="500"/>
-      <line x1="740" y1="500" x2="920" y2="580"/>
-      <circle cx="200" cy="200" r="1.5" class="node"/>
-      <circle cx="400" cy="300" r="2" class="node"/>
-      <circle cx="620" cy="280" r="2.5" class="node pulse"/>
-      <circle cx="840" cy="350" r="1.5" class="node"/>
-      <circle cx="1020" cy="300" r="1.5" class="node"/>
-      <circle cx="300" cy="450" r="1.5"/>
-      <circle cx="500" cy="520" r="2"/>
-      <circle cx="740" cy="500" r="2"/>
-      <circle cx="920" cy="580" r="1.5"/>
-    </svg>
+<body id="top">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div id="intro" class="intro-screen" aria-hidden="true">
+    <div class="intro-title">
+      <span>A PLACE FOR</span>
+      <em>questions.</em>
+    </div>
   </div>
-  <div class="topbar"><div class="wrap"><nav class="nav"><a class="brand" href="#top">Simple Minds<span>.</span></a><div class="navlinks"><a href="#rooms">Rooms</a><a href="#questions">Questions</a><a href="#collection">Collection</a><a href="#principles">Principles</a><a href="#contact">Contact</a></div><div class="sound-toggle"><button data-sound="water">water</button><button data-sound="wind">wind</button><button data-sound="footsteps">footsteps</button></div></nav></div></div>
-  <main id="top">
-    <section class="threshold wrap">
-      <div class="threshold-inner">
-        <span class="eyebrow">Simple Minds Studios: Spatial Habitats</span>
-        <h1>A PLACE FOR<br><em>questions.</em></h1>
-        <p class="sub">A living digital cultural space for research, design, film, fashion, music, civic imagination, and the ideas that become more interesting when we stay with them.</p>
-        <div class="architecture">
-          <span class="line">Simple Minds Studios</span>
-          <span class="line arrow">↓</span>
-          <span class="line indent">Thinking Clearer — Spatial Habitat</span>
-          <span class="line arrow indent">↓</span>
-          <span class="line indent">Low Visibility — Spatial Habitat</span>
-          <span class="line arrow indent">↓</span>
-          <span class="line indent">Architecture of Witnessing</span>
-          <span class="line arrow indent">↓</span>
-          <span class="line indent">Found Henge</span>
-          <span class="line arrow indent">↓</span>
-          <span class="line indent">Oliver Studies</span>
-          <span class="line arrow indent">↓</span>
-          <span class="line indent">Future Civic Imagination</span>
-          <span class="line arrow indent">↓</span>
-          <span class="line indent">Mission Lantern</span>
+
+  <div class="shader-wrap" aria-hidden="true">
+    <canvas id="shader-canvas"></canvas>
+  </div>
+
+  <div class="shell">
+    <nav class="site-nav" id="topNav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Simple Minds Studios home">Simple Minds</a>
+
+      <div class="desktop-links">
+        <a href="#rooms">Rooms</a>
+        <a href="#questions">Questions</a>
+        <a href="#collection">Collection</a>
+        <a href="#principles">Principles</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-button menu-button" id="menuButton" type="button" aria-label="Open navigation menu" aria-controls="mobileMenu" aria-expanded="false">
+          <span aria-hidden="true">☰</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <nav aria-label="Mobile navigation">
+        <a class="utility-link" href="#rooms">Rooms</a>
+        <a class="utility-link" href="#questions">Questions</a>
+        <a class="utility-link" href="#collection">Collection</a>
+        <a class="utility-link" href="#principles">Principles</a>
+        <a class="utility-link" href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <header class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Simple Minds Studios: Spatial Habitats</p>
+        <h1 class="display">A PLACE FOR<br><span class="italic cobalt">questions.</span></h1>
+        <p class="body-lg hero-copy">A living cultural space for research, design, film, fashion, music, civic imagination, and the ideas that become more interesting when we stay with them.</p>
+        <div class="threshold-cue" aria-hidden="true">
+          <span class="eyebrow" style="margin:0">Come explore with us</span>
+          <span>↓</span>
         </div>
-        <div class="thesis">“We rarely need more information. We often need better environments in which to encounter it.”</div>
-        <a class="enter" href="#doctrine">Come explore with us ↓</a>
       </div>
-      <div class="hint">Curiosity → orientation → exploration → reflection</div>
-    </section>
+    </header>
 
-    <section id="doctrine" class="section wrap">
-      <article class="doctrine glass">
-        <p>Thinking Clearer began as a podcast. Then it became a podcast with a website. Then it became connected to research papers, photography, museum concepts, AI collaboration, interactive design, film, ordinary life, and Simple Minds Studios.</p>
-        <p>For a time, these appeared to be separate projects orbiting the same interests.</p>
-        <p>The Spatial Habitat suggests something more coherent: They were never separate destinations. They were pieces of a larger architecture.</p>
-        <p><strong>The Spatial Habitat is not merely a user interface. It is not a dashboard. It is not simply a website. It is the first visual expression of a thinking environment.</strong></p>
-        <p>Instead of organizing information, it organizes relationships.<br>Instead of rewarding speed, it encourages attention.<br>Instead of asking what task you want to perform, it asks how you want to approach an idea:</p>
-        <div class="modes"><span class="mode">Focus</span><span class="mode">Analysis</span><span class="mode">Synthesis</span></div>
-        <p style="margin-top:24px;opacity:.7">These are not product features. They are modes of thought.</p>
-      </article>
-    </section>
+    <main id="main-content">
+      <section class="page-section" aria-labelledby="descent-title">
+        <div class="split">
+          <div>
+            <p class="eyebrow">The Descent</p>
+            <h2 class="headline" id="descent-title">Through <span class="italic">Architectures</span></h2>
+            <p class="body italic" style="margin-top:1.5rem">“We rarely need more information. We often need better environments in which to encounter it.”</p>
+          </div>
 
-    <section id="descent" class="section wrap">
-      <div class="section-head"><span class="label">THE DESCENT</span><h2>Through <em>Architectures</em></h2></div>
-      <div class="descent"><div></div><div class="spine">
-        <div class="node"><div class="name">Thinking Clearer</div><div class="meta">Podcast as doorway — What are we actually doing when we think?</div></div><div class="arrow">↓</div>
-        <div class="node current"><div class="name">Spatial Habitat</div><div class="meta">CURRENT ARTIFACT — First visual expression of a thinking environment — you are here.</div><span class="tag">Focus / Analysis / Synthesis</span></div><div class="arrow">↓</div>
-        <div class="node"><div class="name">Low Visibility Spatial Habitat</div><div class="meta">Seeing when seeing is difficult</div></div><div class="arrow">↓</div>
-        <div class="node"><div class="name">Architecture of Witnessing</div><div class="meta">Attention as practice</div></div><div class="arrow">↓</div>
-        <div class="node"><div class="name">Found Henge</div><div class="meta">Found structures behaving like monuments</div></div><div class="arrow">↓</div>
-        <div class="node"><div class="name">Oliver Studies</div><div class="meta">Walks, attention, companionship</div></div><div class="arrow">↓</div>
-        <div class="node"><div class="name">Future Civic Imagination</div><div class="meta">Towns designed for thinking</div></div><div class="arrow">↓</div>
-        <div class="node"><div class="name">Mission Lantern</div><div class="meta">Carrying the question forward</div></div>
-      </div><div></div></div>
-    </section>
+          <div class="descent">
+            <div class="descent-item">
+              <span class="node"></span>
+              <div>
+                <h3 class="headline-sm">Thinking Clearer</h3>
+                <p class="mono">Podcast as doorway — What are we actually doing when we think?</p>
+              </div>
+            </div>
 
-    <section id="rooms" class="section wrap">
-      <div class="section-head"><span class="label">Explore the space</span><h2>Choose a <em>room</em></h2><p class="sub">There is no required route. Enter through a question, a system, an image, a story, or a piece of work you did not expect to find.</p></div>
-      <div class="rooms">
-        <a class="room featured glass" href="#questions"><span class="room-number">Room 01 / The Forum</span><h3>Questions worth staying with.</h3><p>Begin with the question rather than the category. Follow it until it becomes a project, a position, an artifact, or a better question.</p><span class="status">Open now — invitation, not institution</span></a>
-        <a class="room glass" href="#collection"><span class="room-number">Room 02 / Working Collection</span><h3>Systems, studies & experiments</h3><p>Independent work across civic systems, machine intelligence, spatial design, astronomy, anomaly detection, and cultural production.</p><span class="status">Open collection</span></a>
-        <a class="room glass" href="https://bartron773.github.io/low-visibility-brand-bible/" target="_blank"><span class="room-number">Room 03 / Visual Culture</span><h3>Low Visibility</h3><p>Fashion, atmosphere, editorial worlds, moving image, and the visual language of obscured environments.</p><span class="status">Enter exhibition</span></a>
-        <a class="room glass" href="https://bartron773.github.io/the-hart-protocol/" target="_blank"><span class="room-number">Room 04 / Civic Futures</span><h3>The Hart Protocol</h3><p>A public-interest framework for data centers, local benefit, energy responsibility, and community participation.</p><span class="status">Enter project</span></a>
-        <article class="room glass closed"><span class="room-number">Room 05 / Research Archive</span><h3>Aurelia & Wayfinder</h3><p>The first two dossiers are being prepared for permanent display inside the Simple Minds Studios archive.</p><span class="status">Gallery under preparation</span></article>
-      </div>
-    </section>
+            <div class="descent-item">
+              <span class="node active"></span>
+              <div class="artifact">
+                <p class="eyebrow cobalt">Current Artifact — You are here</p>
+                <h3 class="headline-sm">Spatial Habitat</h3>
+                <div class="pills" aria-label="Modes of thought">
+                  <span class="pill active">Focus</span>
+                  <span class="pill">Analysis</span>
+                  <span class="pill">Synthesis</span>
+                </div>
+              </div>
+            </div>
 
-    <section id="questions" class="section wrap">
-      <div class="section-head"><span class="label">The Forum</span><h2>What would you like to <em>understand?</em></h2></div>
-      <div class="questions">
-        <a class="question" href="#principles"><span class="room-number">Q / 001</span><span class="qtext">How do we separate evidence, inference, and speculation without killing wonder?</span><span class="qmeta">Research practice</span></a>
-        <a class="question" href="https://bartron773.github.io/the-hart-protocol/" target="_blank"><span class="room-number">Q / 002</span><span class="qtext">Can infrastructure return wealth to the communities that host it?</span><span class="qmeta">Civic systems</span></a>
-        <a class="question" href="https://bartron773.github.io/low-visibility-brand-bible/" target="_blank"><span class="room-number">Q / 003</span><span class="qtext">Can clothing, atmosphere, and image become a form of documentary?</span><span class="qmeta">Visual culture</span></a>
-        <a class="question" href="#collection"><span class="room-number">Q / 004</span><span class="qtext">What becomes possible when one person learns to think with many intelligent systems?</span><span class="qmeta">Cognitive partnership</span></a>
-      </div>
-    </section>
+            <div class="descent-item">
+              <span class="node"></span>
+              <div>
+                <h3 class="headline-sm">Low Visibility Spatial Habitat</h3>
+                <p class="mono">Seeing when seeing is difficult</p>
+              </div>
+            </div>
 
-    <section id="collection" class="section wrap">
-      <div class="section-head"><span class="label">Working Collection</span><h2>Projects in <em>public view</em></h2><p class="sub">The website is the exhibition. GitHub is the working archive: source files, documentation, versions, licensing, and the record of how each idea developed.</p></div>
-      <div class="collection">
-        <article class="card glass"><span class="kicker">CONTEXT / MEMORY / WORKFLOW</span><h3>Linc(d)</h3><p>A privacy-first context operating system for organizing projects, AI agents, media, memory, and personal intelligence.</p><span class="status">PRIVATE DEVELOPMENT REPOSITORY</span></article>
-        <article class="card glass"><span class="kicker">SPATIAL DESIGN</span><h3>SpineFlow</h3><p>A spatial-design system for exploring interior concepts, rendering directions, material logic, and structures that think with their user.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/spineflow-tiny-showcase" target="_blank">Repository</a><a class="button primary" href="https://spineflow-nwh7ttdb.manus.space/" target="_blank">Live artifact</a></div></article>
-        <article class="card glass"><span class="kicker">SYSTEMS THEORY</span><h3>Fractalnomia</h3><p>An evolving inquiry into repeating structures, economics, systems behavior, and patterns appearing across scales.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/Fractalnomia" target="_blank">Repository</a></div></article>
-        <article class="card glass"><span class="kicker">SPACE SCIENCE</span><h3>RomanMAST</h3><p>A research-oriented project working with astronomical data, observation, and meaningful structure within large scientific archives.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/RomanMAST" target="_blank">Repository</a></div></article>
-        <article class="card glass"><span class="kicker">SIGNALS / DETECTION</span><h3>HCBL Burstlog</h3><p>A public experiment in recording and examining bursts, irregular signals, and unexpected events through a documented workflow.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/hcbl-burstlog" target="_blank">Repository</a></div></article>
-        <article class="card glass"><span class="kicker">MUSIC / NARRATIVE</span><h3>Glam Confession</h3><p>A visual and musical project exploring performance, confession, glamour, identity, and AI-assisted narrative production.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/glam-confession" target="_blank">Repository</a></div></article>
-        <article class="card glass"><span class="kicker">LOW VISIBILITY</span><h3>Low Visibility Lookbooks</h3><p>A habitat designed for seeing when seeing is difficult — fashion, atmosphere, and editorial systems.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/Low-Visibility-Lookbooks" target="_blank">Repository</a><a class="button primary" href="https://bartron773.github.io/Low-Visibility-Lookbooks/" target="_blank">Artifact</a></div></article>
-        <article class="card glass"><span class="kicker">PLACE / METHOD</span><h3>The Hart Protocol</h3><p>A local protocol for attention, walking, and witnessing — and a framework for data center community benefit.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/the-hart-protocol" target="_blank">Repository</a><a class="button primary" href="https://bartron773.github.io/the-hart-protocol/" target="_blank">Artifact</a></div></article>
-        <article class="card glass"><span class="kicker">NARRATIVE / ARCHIVE</span><h3>Best Human Moment</h3><p>A small archive of moments where people show up as their best selves.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/best-human-moment" target="_blank">Repository</a><a class="button primary" href="https://bartron773.github.io/best-human-moment/" target="_blank">Artifact</a></div></article>
-        <article class="card glass"><span class="kicker">RESEARCH / NARRATIVE</span><h3>Project Aurelia</h3><p>An exploratory project in systems, identity, and long-form inquiry.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/project-aurelia" target="_blank">Repository</a><a class="button primary" href="https://bartron773.github.io/project-aurelia/" target="_blank">Artifact</a></div></article>
-        <article class="card glass"><span class="kicker">NAVIGATION / SYSTEMS</span><h3>Project Wayfinder</h3><p>A wayfinding experiment — how we orient, decide, and keep moving through complex terrain.</p><div class="actions"><a class="button" href="https://github.com/Bartron773/project-wayfinder" target="_blank">Repository</a><a class="button primary" href="https://bartron773.github.io/project-wayfinder/" target="_blank">Artifact</a></div></article>
-        <article class="card glass"><span class="kicker">SPACE / SIGNAL</span><h3>Project Voyager III</h3><p>A continuation of Voyager's golden record — what would we send now?</p><div class="actions"><a class="button" href="https://github.com/Bartron773/project-voyager-iii" target="_blank">Repository</a><a class="button primary" href="https://bartron773.github.io/project-voyager-iii/" target="_blank">Artifact</a></div></article>
-      </div>
-    </section>
+            <div class="descent-item">
+              <span class="node"></span>
+              <div>
+                <h3 class="headline-sm">Architecture of Witnessing</h3>
+                <p class="mono">Attention as practice</p>
+              </div>
+            </div>
 
-    <section id="principles" class="section wrap">
-      <div class="section-head"><span class="label">Editorial Principles</span><h2>Wonder, with <em>standards.</em></h2></div>
-      <div class="principles">
-        <article class="panel glass"><h3>Simple Minds Studios</h3><p>The studio is not organized around a single medium. It is organized around a way of thinking: notice what is difficult to understand, stay curious long enough to see its structure, and make that structure visible.</p><p>We'd rather be curious than certain. That's a more disciplined kind of attention. We rarely need more information. We often need better environments in which to encounter it.</p></article>
-        <article class="panel glass"><span class="kicker">The working principle</span><h3>Making things make sense.</h3><p>Artificial intelligence is used as a cognitive and creative tool: to challenge assumptions, clarify thought, connect ideas, prototype possibilities, and expand what one person can investigate and build.</p><p class="note">Simple Minds Studios designs environments where ideas can be encountered, questioned, connected, revised, and lived with over time.</p></article>
-      </div>
-    </section>
+            <div class="descent-item">
+              <span class="node"></span>
+              <div>
+                <h3 class="headline-sm">Found Henge</h3>
+                <p class="mono">Found structures behaving like monuments</p>
+              </div>
+            </div>
 
-    <section id="contact" class="section wrap">
-      <article class="panel glass">
-        <span class="label">Start a conversation</span>
-        <h2>Bring the <em>difficult thing.</em></h2>
-        <p class="sub">Some conversations become collaborations. Others become friendships. Some last fifteen minutes. Some last for years. Simple Minds Studios exists because people are willing to stay with difficult questions a little longer than most.</p>
-        <p class="sub">If you're curious about artificial intelligence, have a project that needs another perspective, want to commission new work, need someone to speak or contribute to your publication, or simply want to have an honest conversation about an idea, you're welcome here.</p>
-        <p class="note">Sometimes the conversation is the project.</p>
-        <div class="actions">
-          <a class="button primary" href="mailto:MITechBros@outlook.com">Send an email — MITechBros@outlook.com</a>
-          <a class="button" id="igLink" href="https://www.instagram.com/simplemindsstudios" target="_blank" rel="noopener noreferrer">Follow the studio — Instagram</a>
-          <a class="button" id="fbLink" href="https://www.facebook.com/simplemindsstudios" target="_blank" rel="noopener noreferrer">Visit on Facebook</a>
-          <a class="button" href="https://github.com/Bartron773" target="_blank" rel="noopener noreferrer">Explore the archive — GitHub</a>
-          <a class="button" href="https://simplemindsstudios.com" target="_blank" rel="noopener noreferrer">simplemindsstudios.com</a>
+            <div class="descent-item">
+              <span class="node"></span>
+              <div>
+                <h3 class="headline-sm">Oliver Studies</h3>
+                <p class="mono">Walks, attention, companionship</p>
+              </div>
+            </div>
+
+            <div class="descent-item">
+              <span class="node"></span>
+              <div>
+                <h3 class="headline-sm">Future Civic Imagination</h3>
+                <p class="mono">Towns designed for thinking</p>
+              </div>
+            </div>
+
+            <div class="descent-item">
+              <span class="node"></span>
+              <div>
+                <h3 class="headline-sm">Mission Lantern</h3>
+                <p class="mono">Carrying the question forward</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </article>
-    </section>
-  </main>
+      </section>
 
-  <footer class="footer"><div class="wrap"><p class="fine">Created by Bart Salazar / Simple Minds Studios<br>Hart, Michigan — 2026<br>“We rarely need more information. We often need better environments in which to encounter it.”<br>Come explore with us.</p></div></footer>
+      <section class="page-section" id="rooms" aria-labelledby="rooms-title">
+        <div class="section-head">
+          <p class="eyebrow">Explore the space</p>
+          <h2 class="headline" id="rooms-title">Choose a <span class="italic">room</span></h2>
+          <p class="body">There is no required route. Enter through a question, a system, an image, a story, or a piece of work you did not expect to find.</p>
+        </div>
+
+        <div class="rooms-grid">
+          <a class="card large" href="#questions">
+            <div>
+              <p class="mono">Room 01 / The Forum</p>
+              <h3 class="headline" style="margin-top:1rem">Questions worth staying with.</h3>
+              <p class="body">Begin with the question rather than the category. Follow it until it becomes a project, a position, an artifact, or a better question.</p>
+            </div>
+            <div class="card-footer"><span>Open now</span><span class="mono">Invitation, not institution</span></div>
+          </a>
+
+          <div class="stack">
+            <a class="card" href="#collection">
+              <div>
+                <p class="mono">Room 02 / Working Collection</p>
+                <h3 class="headline-sm" style="margin-top:.7rem">Systems, studies &amp; experiments</h3>
+              </div>
+              <div class="card-footer"><span>Open collection</span></div>
+            </a>
+
+            <a class="card" href="https://bartron773.github.io/low-visibility-brand-bible/">
+              <div>
+                <p class="mono">Room 03 / Visual Culture</p>
+                <h3 class="headline-sm" style="margin-top:.7rem">Low Visibility</h3>
+              </div>
+              <div class="card-footer"><span>Enter exhibition</span></div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section questions" id="questions" aria-labelledby="questions-title">
+        <div class="section-head">
+          <p class="eyebrow">The Forum</p>
+          <h2 class="headline" id="questions-title">What would you like to <span class="italic" style="color:var(--muted)">understand?</span></h2>
+        </div>
+
+        <div>
+          <div class="question-row" aria-label="Question 001">
+            <span class="mono cobalt">Q / 001</span>
+            <span class="question-title">How do we separate evidence, inference, and speculation without killing wonder?</span>
+            <span class="eyebrow" style="margin:0">Research practice</span>
+          </div>
+
+          <a class="question-row" href="https://bartron773.github.io/the-hart-protocol/">
+            <span class="mono">Q / 002</span>
+            <span class="question-title">Can infrastructure return wealth to the communities that host it?</span>
+            <span class="eyebrow" style="margin:0">Civic systems</span>
+          </a>
+
+          <a class="question-row" href="https://bartron773.github.io/low-visibility-brand-bible/">
+            <span class="mono">Q / 003</span>
+            <span class="question-title">Can clothing, atmosphere, and image become a form of documentary?</span>
+            <span class="eyebrow" style="margin:0">Visual culture</span>
+          </a>
+
+          <div class="question-row" aria-label="Question 004">
+            <span class="mono">Q / 004</span>
+            <span class="question-title">What becomes possible when one person learns to think with many intelligent systems?</span>
+            <span class="eyebrow" style="margin:0">Cognitive partnership</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section" id="collection" aria-labelledby="collection-title">
+        <div class="section-head">
+          <p class="eyebrow">Working Collection</p>
+          <h2 class="headline" id="collection-title">Projects in <span class="italic">public view</span></h2>
+          <p class="body">The website is the exhibition. GitHub is the working archive: source files, documentation, versions, licensing, and the record of how each idea developed.</p>
+          <p class="body italic">“Nothing here is finished. Everything here is being lived with.”</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <p class="eyebrow">Context / Memory / Workflow</p>
+            <h3 class="headline-sm">Linc(d)</h3>
+            <p class="body">A privacy-first context operating system for organizing projects, AI agents, media, memory, and personal intelligence.</p>
+            <div class="project-links"><span class="mono">Private development repository</span></div>
+          </article>
+
+          <article class="project-card">
+            <p class="eyebrow">Spatial Design</p>
+            <h3 class="headline-sm">SpineFlow</h3>
+            <p class="body">A spatial-design system for exploring interior concepts, rendering directions, material logic, and structures that think with their user.</p>
+            <div class="project-links">
+              <a href="https://github.com/Bartron773/spineflow-tiny-showcase">Repository</a>
+              <a class="live" href="https://spineflow-nwh7ttdb.manus.space/">Live Artifact</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <p class="eyebrow">Systems Theory</p>
+            <h3 class="headline-sm">Fractalnomia</h3>
+            <p class="body">An evolving inquiry into repeating structures, economics, systems behavior, and patterns appearing across scales.</p>
+            <div class="project-links"><a href="https://github.com/Bartron773/Fractalnomia">Repository</a></div>
+          </article>
+
+          <article class="project-card">
+            <p class="eyebrow">Space Science</p>
+            <h3 class="headline-sm">RomanMAST</h3>
+            <p class="body">A research-oriented project working with astronomical data, observation, and meaningful structure within large scientific archives.</p>
+            <div class="project-links"><a href="https://github.com/Bartron773/RomanMAST">Repository</a></div>
+          </article>
+
+          <article class="project-card">
+            <p class="eyebrow">Signals / Detection</p>
+            <h3 class="headline-sm">HCBL Burstlog</h3>
+            <p class="body">A public experiment in recording and examining bursts, irregular signals, and unexpected events through a documented workflow.</p>
+            <div class="project-links"><a href="https://github.com/Bartron773/hcbl-burstlog">Repository</a></div>
+          </article>
+
+          <article class="project-card">
+            <p class="eyebrow">Music / Narrative</p>
+            <h3 class="headline-sm">Glam Confession</h3>
+            <p class="body">A visual and musical project exploring performance, confession, glamour, identity, and AI-assisted narrative production.</p>
+            <div class="project-links"><a href="https://github.com/Bartron773/glam-confession">Repository</a></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="page-section" id="principles" aria-labelledby="principles-title">
+        <div class="section-head">
+          <p class="eyebrow">Editorial Principles</p>
+          <h2 class="headline" id="principles-title">Wonder, with <span class="italic">standards.</span></h2>
+        </div>
+
+        <div class="principles-grid">
+          <div class="principle-panel">
+            <h3 class="headline-sm">Simple Minds Studios</h3>
+            <p class="body">The studio is not organized around a single medium. It is organized around a way of thinking: notice what is difficult to understand, stay curious long enough to see its structure, and make that structure visible.</p>
+            <p class="body">We would rather be curious than certain. That is a more disciplined kind of attention.</p>
+          </div>
+
+          <div class="principle-panel">
+            <p class="eyebrow">The working principle</p>
+            <h3 class="headline-sm">Making things make sense.</h3>
+            <p class="body">Artificial intelligence is used as a cognitive and creative tool: to challenge assumptions, clarify thought, connect ideas, prototype possibilities, and expand what one person can investigate and build.</p>
+            <p class="body">Simple Minds Studios designs environments where ideas can be encountered, questioned, connected, revised, and lived with over time.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section" id="contact" aria-labelledby="contact-title">
+        <div class="section-head">
+          <p class="eyebrow">Start a conversation</p>
+          <h2 class="headline" id="contact-title">Bring the <span class="italic">difficult thing.</span></h2>
+          <p class="body">Some conversations become collaborations. Others become friendships. Some last fifteen minutes. Some last for years. Simple Minds Studios exists because people are willing to stay with difficult questions a little longer than most.</p>
+          <p class="body">Sometimes the conversation is the project.</p>
+          <p class="body"><a href="mailto:MITechBros@outlook.com">Send an email — MITechBros@outlook.com</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <h2 class="headline-sm">Simple Minds Studios</h2>
+          <p class="body">A spatial habitat for questions, artifacts, and civic imagination.</p>
+
+          <div class="credits mono" aria-label="Studio credits">
+            <span>Creative Director: Bart Salazar</span>
+            <span>Museum Director: Brad Devowe</span>
+            <span>Hart, Michigan — 2026</span>
+          </div>
+
+          <p class="copyright mono">© 2024–2026 Simple Minds Studios.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div>
+            <p class="eyebrow">Explore</p>
+            <a href="#questions">The Forum</a>
+            <a href="#collection">Working Collection</a>
+            <a href="https://bartron773.github.io/low-visibility-brand-bible/">Visual Culture</a>
+          </div>
+          <div>
+            <p class="eyebrow">Network</p>
+            <a href="https://github.com/Bartron773">GitHub</a>
+            <a href="https://www.instagram.com/simplemindsstudios">Instagram</a>
+            <a href="https://www.facebook.com/simplemindsstudios">Facebook</a>
+          </div>
+        </nav>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (() => {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Intro overlay
+      const intro = document.getElementById('intro');
+      if (!reduceMotion && intro) {
+        window.addEventListener('load', () => {
+          window.setTimeout(() => intro.classList.add('is-leaving'), 5000);
+        }, { once: true });
+      }
+
+      // Navigation state
+      const nav = document.getElementById('topNav');
+      const updateNavigation = () => nav?.classList.toggle('is-scrolled', window.scrollY > 50);
+      window.addEventListener('scroll', updateNavigation, { passive: true });
+      updateNavigation();
+
+      // Mobile menu
+      const menuButton = document.getElementById('menuButton');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (menuButton && mobileMenu) {
+        menuButton.addEventListener('click', () => {
+          const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+          menuButton.setAttribute('aria-expanded', String(!isOpen));
+          menuButton.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+          mobileMenu.classList.toggle('is-open', !isOpen);
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('is-open');
+            menuButton.setAttribute('aria-expanded', 'false');
+            menuButton.setAttribute('aria-label', 'Open navigation menu');
+          });
+        });
+      }
+
+      // WebGL background
+      const canvas = document.getElementById('shader-canvas');
+      if (!canvas) return;
+
+      const gl = canvas.getContext('webgl', { alpha: false, antialias: false }) || canvas.getContext('experimental-webgl');
+      if (!gl) return;
+
+      const vertexSource = `
+        attribute vec2 a_position;
+        varying vec2 v_texCoord;
+        void main() {
+          v_texCoord = a_position * 0.5 + 0.5;
+          gl_Position = vec4(a_position, 0.0, 1.0);
+        }
+      `;
+
+      const fragmentSource = `
+        precision highp float;
+        uniform float u_time;
+        uniform vec2 u_resolution;
+        varying vec2 v_texCoord;
+
+        float noise(vec2 p) {
+          return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+        }
+
+        void main() {
+          vec2 uv = v_texCoord;
+          vec3 color = vec3(0.047, 0.047, 0.047);
+          float n = noise(uv * 3.0 + u_time * 0.05);
+          color += n * 0.01;
+          float mask = smoothstep(0.8, 0.2, uv.y);
+          color *= (0.8 + 0.2 * mask);
+          float grid = step(0.998, fract(uv.x * 12.0));
+          color += grid * 0.015;
+          gl_FragColor = vec4(color, 1.0);
+        }
+      `;
+
+      const createShader = (type, source) => {
+        const shader = gl.createShader(type);
+        gl.shaderSource(shader, source);
+        gl.compileShader(shader);
+        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+          console.error(gl.getShaderInfoLog(shader));
+          gl.deleteShader(shader);
+          return null;
+        }
+        return shader;
+      };
+
+      const vertexShader = createShader(gl.VERTEX_SHADER, vertexSource);
+      const fragmentShader = createShader(gl.FRAGMENT_SHADER, fragmentSource);
+      if (!vertexShader || !fragmentShader) return;
+
+      const program = gl.createProgram();
+      gl.attachShader(program, vertexShader);
+      gl.attachShader(program, fragmentShader);
+      gl.linkProgram(program);
+      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+        console.error(gl.getProgramInfoLog(program));
+        gl.deleteProgram(program);
+        return;
+      }
+
+      gl.useProgram(program);
+
+      const buffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+
+      const position = gl.getAttribLocation(program, 'a_position');
+      gl.enableVertexAttribArray(position);
+      gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+
+      const timeLocation = gl.getUniformLocation(program, 'u_time');
+      const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
+
+      const syncSize = () => {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const width = Math.max(1, Math.round(canvas.clientWidth * dpr));
+        const height = Math.max(1, Math.round(canvas.clientHeight * dpr));
+        if (canvas.width !== width || canvas.height !== height) {
+          canvas.width = width;
+          canvas.height = height;
+        }
+      };
+
+      const resizeObserver = 'ResizeObserver' in window ? new ResizeObserver(syncSize) : null;
+      resizeObserver?.observe(canvas);
+      window.addEventListener('resize', syncSize, { passive: true });
+      syncSize();
+
+      let running = true;
+      let frameId = null;
+
+      const draw = (time = 0) => {
+        if (!running) return;
+        syncSize();
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        gl.uniform1f(timeLocation, reduceMotion ? 0 : time * 0.001);
+        gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        if (!reduceMotion) frameId = requestAnimationFrame(draw);
+      };
+
+      document.addEventListener('visibilitychange', () => {
+        running = !document.hidden;
+        if (running && !reduceMotion) frameId = requestAnimationFrame(draw);
+        else if (frameId) cancelAnimationFrame(frameId);
+      });
+
+      draw(0);
+    })();
+  </script>
 </body>
 </html>
