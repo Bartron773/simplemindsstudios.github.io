@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#141420"/>
+      <stop offset="100%" stop-color="#080810"/>
+    </radialGradient>
+    <radialGradient id="blueGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8AFF"/>
+      <stop offset="100%" stop-color="#3D5AF1"/>
+    </radialGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="url(#bg)"/>
+
+  <!-- Subtle border -->
+  <rect width="63" height="63" x=".5" y=".5" rx="11.5"
+    fill="none" stroke="#3D5AF1" stroke-width=".6" stroke-opacity=".3"/>
+
+  <!-- S mark — geometric, clean at 16px -->
+  <!-- Top bar -->
+  <rect x="18" y="15" width="28" height="5" rx="2.5" fill="url(#blueGlow)" filter="url(#glow)"/>
+  <!-- Middle bar -->
+  <rect x="18" y="29.5" width="28" height="5" rx="2.5" fill="url(#blueGlow)" filter="url(#glow)"/>
+  <!-- Bottom bar -->
+  <rect x="18" y="44" width="28" height="5" rx="2.5" fill="url(#blueGlow)" filter="url(#glow)"/>
+  <!-- Left side top -->
+  <rect x="18" y="15" width="5" height="19.5" rx="2.5" fill="url(#blueGlow)"/>
+  <!-- Right side bottom -->
+  <rect x="41" y="29.5" width="5" height="19.5" rx="2.5" fill="url(#blueGlow)"/>
+</svg>
