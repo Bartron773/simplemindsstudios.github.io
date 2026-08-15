@@ -33,9 +33,21 @@ jobs:
               raise SystemExit("Inline module script was not found; refusing to modify index.html")
 
           bundle_start = start_tag + len(marker)
-          bundle_end = data.find(b'</script>', bundle_start)
+          close_tag = b'</script>'
+          bundle_end = data.find(close_tag, bundle_start)
+
           if bundle_end == -1:
-              raise SystemExit("Closing script tag was not found; refusing to modify index.html")
+              # This exporter emitted the module as the final HTML token and omitted
+              # the closing script/body/html tags. In that valid-at-EOF shape, every
+              # byte after the opening module tag belongs to the compiled bundle.
+              if b'</body>' in data[bundle_start:] or b'</html>' in data[bundle_start:]:
+                  raise SystemExit("Found HTML closing tags after an unclosed module; refusing to guess the bundle boundary")
+              bundle_end = len(data)
+              suffix = b'\n</body>\n</html>\n'
+              boundary = "EOF"
+          else:
+              suffix = data[bundle_end + len(close_tag):]
+              boundary = "closing script tag"
 
           bundle = data[bundle_start:bundle_end]
           if len(bundle) < 100_000:
@@ -46,13 +58,15 @@ jobs:
           (assets / "app.js").write_bytes(bundle)
 
           replacement = b'<script type="module" src="/assets/app.js"></script>'
-          clean = data[:start_tag] + replacement + data[bundle_end + len(b'</script>'):]
+          clean = data[:start_tag] + replacement + suffix
           index.write_bytes(clean)
 
-          print(f"Extracted {len(bundle)} bytes to assets/app.js")
+          print(f"Boundary: {boundary}")
+          print(f"Extracted {len(bundle)} exact bytes to assets/app.js")
+          print(f"Bundle tail: {bundle[-120:]!r}")
           print(f"index.html: {len(data)} -> {len(clean)} bytes")
 
-      - name: Verify extracted bundle
+      - name: Verify extracted bundle and clean shell
         shell: python
         run: |
           from pathlib import Path
@@ -60,8 +74,10 @@ jobs:
           app = Path("assets/app.js").read_bytes()
           assert b'<script type="module" src="/assets/app.js"></script>' in index
           assert b'<script type="module">' not in index
+          assert b'<div id="root"></div>' in index
+          assert index.rstrip().endswith(b'</html>')
           assert len(app) > 100_000
-          print(f"Verified assets/app.js ({len(app)} bytes)")
+          print(f"Verified assets/app.js ({len(app)} bytes) and clean index shell ({len(index)} bytes)")
 
       - name: Remove branch-only one-time workflow
         run: rm -f .github/workflows/split-react-bundle.yml
