@@ -1,0 +1,75 @@
+name: Split inline React bundle on cleanup branch
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/split-react-bundle.yml
+
+permissions:
+  contents: write
+
+jobs:
+  split:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out cleanup branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/split-react-bundle
+          fetch-depth: 0
+
+      - name: Extract inline module without modifying bundle bytes
+        shell: python
+        run: |
+          from pathlib import Path
+
+          index = Path("index.html")
+          data = index.read_bytes()
+          marker = b'<script type="module">'
+          start_tag = data.find(marker)
+          if start_tag == -1:
+              raise SystemExit("Inline module script was not found; refusing to modify index.html")
+
+          bundle_start = start_tag + len(marker)
+          bundle_end = data.find(b'</script>', bundle_start)
+          if bundle_end == -1:
+              raise SystemExit("Closing script tag was not found; refusing to modify index.html")
+
+          bundle = data[bundle_start:bundle_end]
+          if len(bundle) < 100_000:
+              raise SystemExit(f"Bundle unexpectedly small ({len(bundle)} bytes); refusing to modify index.html")
+
+          assets = Path("assets")
+          assets.mkdir(exist_ok=True)
+          (assets / "app.js").write_bytes(bundle)
+
+          replacement = b'<script type="module" src="/assets/app.js"></script>'
+          clean = data[:start_tag] + replacement + data[bundle_end + len(b'</script>'):]
+          index.write_bytes(clean)
+
+          print(f"Extracted {len(bundle)} bytes to assets/app.js")
+          print(f"index.html: {len(data)} -> {len(clean)} bytes")
+
+      - name: Verify extracted bundle
+        shell: python
+        run: |
+          from pathlib import Path
+          index = Path("index.html").read_bytes()
+          app = Path("assets/app.js").read_bytes()
+          assert b'<script type="module" src="/assets/app.js"></script>' in index
+          assert b'<script type="module">' not in index
+          assert len(app) > 100_000
+          print(f"Verified assets/app.js ({len(app)} bytes)")
+
+      - name: Remove branch-only one-time workflow
+        run: rm -f .github/workflows/split-react-bundle.yml
+
+      - name: Commit split to cleanup branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html assets/app.js .github/workflows/split-react-bundle.yml
+          git commit -m "Split inline React bundle from index"
+          git push origin HEAD:agent/split-react-bundle
