@@ -1,1 +1,1 @@
-restore recovered index
+restore recovered index - complete chunks
