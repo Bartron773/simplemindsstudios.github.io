@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - '.recovery/index.html.gz'
+      - '.recovery/run.txt'
 
 permissions:
   contents: write
@@ -15,12 +15,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Restore and verify index
+      - name: Reassemble, restore, and verify index
         shell: bash
         run: |
           set -euo pipefail
-          gzip -dc .recovery/index.html.gz > index.html
-          test "$(wc -c < index.html)" -gt 150000
+          cat .recovery/chunk00.txt .recovery/chunk01.txt .recovery/chunk02.txt .recovery/chunk03.txt .recovery/chunk04.txt .recovery/chunk05.txt .recovery/chunk06.txt .recovery/chunk07.txt > /tmp/index.b64
+          base64 -d /tmp/index.b64 | gzip -dc > index.html
+          test "$(wc -c < index.html)" -eq 192364
           grep -Fq 'Simple Minds Studios — An Environment for Asking Questions' index.html
           grep -Fq 'G-8QL1DX6CTL' index.html
           grep -Fq 'og:image' index.html
