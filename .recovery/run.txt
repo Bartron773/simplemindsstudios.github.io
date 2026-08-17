@@ -1,1 +1,0 @@
-restore recovered index - verified fragments
