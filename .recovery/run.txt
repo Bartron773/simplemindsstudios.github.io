@@ -1,1 +1,1 @@
-restore recovered index - complete chunks
+restore recovered index - verified fragments
