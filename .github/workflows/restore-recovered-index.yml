@@ -1,0 +1,41 @@
+name: Restore recovered SMS index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.recovery/index.html.gz'
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore and verify index
+        shell: bash
+        run: |
+          set -euo pipefail
+          gzip -dc .recovery/index.html.gz > index.html
+          test "$(wc -c < index.html)" -gt 150000
+          grep -Fq 'Simple Minds Studios — An Environment for Asking Questions' index.html
+          grep -Fq 'G-8QL1DX6CTL' index.html
+          grep -Fq 'og:image' index.html
+          grep -Fq 'twitter:card' index.html
+          grep -Fq 'createRoot(document.getElementById("root")).render' index.html
+          grep -Fq '</html>' index.html
+
+      - name: Commit recovered site and remove recovery files
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .recovery
+          rm -f .github/workflows/restore-recovered-index.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Restore recovered Simple Minds Studios site'
+          git push
