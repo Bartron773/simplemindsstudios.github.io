@@ -21,7 +21,7 @@
 
     document.querySelectorAll('footer .fine').forEach(function(node){
       if(node.textContent.indexOf('Museum Curator: Brad Devowe')!==-1){
-        node.innerHTML='Creative Director: Bart Salazar / Museum Creator: Brad Devowe<br>Museum Curator: Lincoln / OpenAI<br>Simple Minds Studios<br>Hart, Michigan — 2026<br>Enjoy your look around!';
+        node.innerHTML='Creative Director: Bart Salazar / Museum Creator: Brad Devowe<br>Museum Curator: Lincoln / OpenAI<br>Curatorial ensemble: Claude / Anthropic · Gemini / Google · Meta AI / Meta · Grok / xAI<br>Simple Minds Studios<br>Hart, Michigan — 2026<br>Enjoy your look around!';
       }
     });
 
