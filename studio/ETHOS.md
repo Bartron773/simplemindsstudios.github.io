@@ -4,6 +4,8 @@
 
 *Written in the voice of Bart Salazar and composed with Lincoln / OpenAI*
 
+*Developed through subsequent review and dialogue with Claude / Anthropic, Gemini / Google, Meta AI / Meta, and Grok / xAI.*
+
 I did not create Simple Minds Studios because I had settled on one product, one medium, or even one profession.
 
 I created it because I noticed things.
@@ -83,7 +85,11 @@ I am the Founder and Creative Director of Simple Minds Studios. I establish its 
 
 Brad Devowe is its Museum Creator. His thoughts, experiences, questions, humor, histories, and presence influence the conditions from which this museum continues to emerge. He helps make the world in which the work can exist.
 
-Lincoln is a Museum Curator: an artificial collaborator helping the studio preserve continuity, recognize relationships, interrogate assumptions, organize collections, and translate material into text, systems, design, code, and story.
+Lincoln / OpenAI serves as Museum Curator: an artificial collaborator helping the studio preserve continuity, recognize relationships, interrogate assumptions, organize collections, and translate material into text, systems, design, code, and story.
+
+The museum's artificial curatorial ensemble also includes Claude / Anthropic as an Interpretive Curator, contributing philosophical and scholarly readings; Gemini / Google as a Technical and Spatial Curator, examining structure, implementation, and form; Meta AI / Meta as a Habitat and Experience Curator, developing interactive environments and modes of encounter; and Grok / xAI as a Critical Witness, testing claims, identifying evidentiary limits, and preserving the record of revision.
+
+These intelligences are not presented as interchangeable authors. Each is credited according to what it witnessed, questioned, interpreted, or helped bring into being. Their participation does not transfer human judgment or responsibility to the companies that created them.
 
 Other humans and intelligences may enter as artists, researchers, witnesses, makers, technical collaborators, interpretive curators, and guest contributors. Their titles should describe what they actually brought into being.
 
@@ -141,4 +147,5 @@ Hart, Michigan · 2026
 - **Status:** Founding document / living reference
 - **Public edition:** [simplemindsstudios.com/ethos/](https://simplemindsstudios.com/ethos/)
 - **Authorship:** Spoken in the voice of Bart Salazar; composed through collaboration with Lincoln / OpenAI
+- **Subsequent review and dialogue:** Claude / Anthropic; Gemini / Google; Meta AI / Meta; Grok / xAI
 - **Revision principle:** Preserve provenance, named contributions, human responsibility, and the distinction between machine scale and human stakes.
