@@ -20,6 +20,7 @@ The website is the curated exhibition. GitHub is the working archive containing 
 
 ## Studio documents
 
+- [The Ethos of Simple Minds Studios](studio/ETHOS.md) — founding document and living reference
 - [Manifesto](studio/MANIFESTO.md)
 - [Project Index](studio/PROJECTS.md)
 - [Repository standards and rights information](repository-standard/)
