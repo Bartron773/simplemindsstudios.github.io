@@ -149,3 +149,30 @@ Hart, Michigan · 2026
 - **Authorship:** Spoken in the voice of Bart Salazar; composed through collaboration with Lincoln / OpenAI
 - **Subsequent review and dialogue:** Claude / Anthropic; Gemini / Google; Meta AI / Meta; Grok / xAI
 - **Revision principle:** Preserve provenance, named contributions, human responsibility, and the distinction between machine scale and human stakes.
+
+
+## Living note — The human interface (October 21, 2026)
+
+This note extends the founding ethos without replacing it. The studio's principles preceded this reflection; professional experience helps illuminate how those principles have been lived.
+
+Before founding Simple Minds Studios, Bart spent nearly seven years in AppleCare support operations through Transcom, advancing from advisor to leadership roles involving technical support, accessibility, senior escalations, and operational teams. Accessibility support often required communicating across different sensory experiences through telephone conversations, supported at times by remote screen viewing and diagnostic tools. The work called for listening, translation, patience, accurate documentation, and knowing when a problem needed engineering investigation rather than a rehearsed answer.
+
+A knowledge base can describe a procedure. It cannot, on its own, ensure that the person receiving it understands. Good support means adapting the explanation without losing the truth of the problem. Senior-level work could also involve gathering logs and evidence for engineering review. Such escalations should not be confused with independently discovering or assigning cybersecurity CVEs.
+
+Bart remembers not only the difficulty of the work, but admiration for the advisors he supported and led: people who found ways to communicate clearly under demanding circumstances. That experience informs the studio's commitment to human dignity, accessibility, and making complex systems understandable without pretending they are simple.
+
+Brad Devowe contributes a complementary, practical technical perspective. His background includes study of Microsoft-oriented computing and networking, along with long-term hands-on experience with Windows, Android, home networking, IP configuration, security cameras, home automation, and on-site troubleshooting. He did not complete that educational program or obtain formal certifications; his contributions are grounded in sustained curiosity, applied learning, judgment, and the ability to recognize the limits of his expertise.
+
+These are not competing forms of intelligence. They are different ways of meeting the same question: what makes a system genuinely useful to the person living with it?
+
+For the studio's work in AI, spatial interfaces, physical objects, and human-centered robotics, this yields a practical design test:
+
+- Can someone understand what the system is doing and why?
+- Can it adapt its communication without obscuring uncertainty?
+- Does it know when to seek help or escalate?
+- Can it preserve the human's agency, dignity, and lived context?
+- Can technical evidence move between people and systems without losing meaning?
+
+**The knowledge base may tell us what to do. Reaching the person requires more.**
+
+This note is a reflection, not a new founding principle or a claim that the studio provides certified IT or security engineering services. The original ethos, authorship, and commitments remain intact.
