@@ -1,0 +1,17 @@
+#story{width:330px;max-width:calc(100vw - 36px);max-height:calc(100dvh - 310px);top:125px;overflow-y:auto;overscroll-behavior:contain;pointer-events:auto;scrollbar-width:thin;scrollbar-color:#ac9abe transparent}
+#story h2{font-size:30px}#story #stopBody{font-size:12px;line-height:1.6}
+.landmark-history{margin-top:18px;padding-top:15px;border-top:1px solid #8471a733}
+#historyMeta{display:block;font-size:10px;color:#7762a8;letter-spacing:.04em;margin-bottom:10px}
+#historyTabs{display:flex;gap:4px;padding:3px;border-radius:20px;background:#e8dfef99}
+#historyTabs button{flex:1;white-space:nowrap;font-size:10px;padding:8px 5px;border-radius:16px}
+#historyTabs button[aria-selected=true]{background:#7762a8;color:white}
+#historyContext{display:block;font-size:8px;letter-spacing:.1em;color:var(--muted);margin:15px 0 7px}
+#story #historyText{font-size:12px;line-height:1.65;margin:0 0 10px;color:var(--ink)}
+#historySource{font-size:10px;color:#7762a8;text-underline-offset:3px}
+#story #historyQuestion{font:italic 15px/1.45 Georgia,serif;color:var(--ink);margin:15px 0 0;padding-top:12px;border-top:1px solid #8471a722}
+#story .history-footnote{font-size:9px;line-height:1.6;color:var(--muted);margin-bottom:0}
+#intro .history-teaser{font-size:11px;color:#7762a8;line-height:1.5;margin:14px 0}
+.history-selection-note{font-size:10px;line-height:1.5;color:var(--muted);margin:0 5px 10px;max-width:620px}
+body.night #historyTabs{background:#3b3049}body.night #historyMeta,body.night #historySource,body.night #intro .history-teaser{color:#d4b9ef}
+@media(max-width:900px){#story{top:100px;max-height:calc(100dvh - 285px);width:285px}}
+@media(max-width:500px){#story{top:85px;left:16px;width:245px;max-height:calc(100dvh - 305px);padding:14px}#story h2{font-size:25px}#story #stopBody{font-size:10px;line-height:1.5;margin:9px 0 12px}#story #historyText{font-size:11px}#story #historyQuestion{font-size:14px}.history-selection-note{font-size:9px;max-width:90%;margin-bottom:7px}#capture{bottom:207px}#story .landmark-history{margin-top:12px;padding-top:12px}#intro .history-teaser{font-size:10px;max-width:210px}}
