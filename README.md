@@ -18,6 +18,10 @@ Simple Minds Studios brings together:
 
 The website is the curated exhibition. GitHub is the working archive containing source files, documentation, versions, licensing, and development history.
 
+## Public reading guide
+
+For people and AI assistants, start with [llms.txt](llms.txt) and the [public content guide](studio/PUBLIC_CONTENT.md). These link directly to readable project descriptions, sources, credits, and prototype status. Requested AI reading, summary, and citation are permitted under the [AI policy](repository-standard/AI_POLICY.md); model training and bulk reuse remain restricted.
+
 ## Studio documents
 
 - [The Ethos of Simple Minds Studios](studio/ETHOS.md) — founding document and living reference
@@ -44,4 +48,3 @@ See [`repository-standard/LICENSE`](repository-standard/LICENSE), [`repository-s
 **Created by Bart Salazar / Simple Minds Studios**  
 Hart, Michigan — 2026
 
-*Support your local dreamer.*

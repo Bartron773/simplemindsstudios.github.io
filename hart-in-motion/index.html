@@ -1,128 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>A Town You Can Walk Into · Hart, in Motion · Simple Minds Studios</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0e0e0e">
+<title>A Town You Can Walk Into — Simple Minds Studios</title>
+<meta name="description" content="How a small Michigan town became a place the whole internet can step inside, and what that could mean for yours.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=DM+Sans:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap">
+<style>
+:root{--bg:#0e0e0e;--panel:#151515;--paper:#f5f5f2;--muted:#aaa9a4;--faint:#777671;--line:#2d2d2b;--blue:#7790ff;--max:1180px;--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;--mono:"Fira Code",ui-monospace,monospace;color-scheme:dark;box-sizing:border-box}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg);height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--paper);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--blue);color:#fff}
+:focus-visible{outline:2px solid var(--paper);outline-offset:4px}
+.shell{width:min(var(--max),calc(100% - 40px));margin:auto}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:#0e0e0ed9;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid #ffffff14}
+.nav{height:64px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:600;letter-spacing:-.03em}.brand span{color:var(--blue)}
+.back,.eyebrow,.label,.credit{font:400 .65rem/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.back:hover{color:var(--paper)}
+.hero{min-height:78svh;display:grid;align-items:end;padding:120px 0 70px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:70vw;height:70vw;right:-22vw;top:-32vw;border-radius:50%;background:radial-gradient(circle,#7790ff22,transparent 67%);filter:blur(15px)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.45fr .55fr;gap:70px;align-items:end}
+h1{font-size:clamp(3.4rem,9.5vw,8.6rem);line-height:.84;letter-spacing:-.07em;font-weight:400;margin:.16em 0 .26em;max-width:9ch}
+h1 em,h2 em{font-family:var(--serif);font-weight:400}
+.lede{font-size:clamp(1.1rem,2vw,1.45rem);line-height:1.55;max-width:760px;color:#cbc9c2;margin:0}
+.aside{border-top:1px solid #55534e;padding-top:17px}.aside p{color:var(--muted);font-size:.9rem;margin:0 0 14px}.aside strong{color:var(--paper);font-weight:500}
+.statement{padding:clamp(70px,9vw,130px) 0;border-bottom:1px solid var(--line)}
+.statement-grid{display:grid;grid-template-columns:.42fr 1.58fr;gap:clamp(34px,8vw,120px)}
+.rail-inner{position:sticky;top:105px}.rail p{font-size:.8rem;color:var(--faint);max-width:25ch}
+.copy{max-width:790px}
+.copy>p{font-family:var(--serif);font-size:clamp(1.15rem,2vw,1.5rem);line-height:1.7;color:#d8d7d1;margin:0 0 1.35em}
+.copy>p strong{color:var(--paper);font-weight:400}
+.copy .declaration{font-family:var(--sans);font-size:clamp(1.9rem,4vw,3.4rem);line-height:1.12;letter-spacing:-.035em;color:var(--paper);margin:1.4em 0}
+.declaration em{font-family:var(--serif)}
+.questions{border-left:1px solid var(--blue);padding-left:25px;margin:2.6em 0}
+.questions p{font-family:var(--sans);font-size:clamp(1rem,1.5vw,1.15rem);margin:.45em 0;color:#c8c7c1}
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:2.6em 0}
+.roles.two{grid-template-columns:repeat(2,1fr)}
+.role{background:var(--panel);padding:24px;min-height:170px}
+.role h3{font-size:1.2rem;margin:20px 0 8px;font-weight:500}
+.role p{font-family:var(--sans);font-size:.87rem;line-height:1.6;color:var(--muted);margin:0}
+.stat b{display:block;font:400 clamp(2.6rem,5vw,4rem)/1 var(--serif);color:var(--paper);letter-spacing:-.03em;margin-top:14px}
+.link{border-bottom:1px solid var(--blue);color:var(--paper)}
+.steps{list-style:none;padding:0;margin:2em 0;border-top:1px solid var(--line)}
+.steps li{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:18px 0;border-bottom:1px solid var(--line);font-family:var(--sans);font-size:1rem;color:#c8c7c1}
+.steps li:before{counter-increment:s;content:"0" counter(s);font:400 .68rem var(--mono);letter-spacing:.08em;color:var(--blue);padding-top:5px}
+.steps{counter-reset:s}
+.final{padding:clamp(80px,11vw,160px) 0;background:radial-gradient(circle at 20% 20%,#7790ff13,transparent 28%)}
+.final h2{font-size:clamp(2.8rem,7vw,6.4rem);line-height:.92;letter-spacing:-.06em;font-weight:400;margin:0 0 30px;max-width:11ch}
+.final p{font-size:1.05rem;color:var(--muted);max-width:640px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.button{border:1px solid #4a4945;padding:12px 16px;font:400 .67rem var(--mono);letter-spacing:.04em;text-transform:uppercase}
+.button.primary{background:var(--paper);color:var(--bg);border-color:var(--paper)}
+.button:hover{border-color:var(--paper)}
+footer{padding:45px 0 70px;border-top:1px solid var(--line)}
+.footer-grid{display:flex;justify-content:space-between;gap:30px}
+footer p{font:400 .62rem/1.7 var(--mono);color:var(--faint);margin:0}
+@media(max-width:850px){.hero-grid,.statement-grid{grid-template-columns:1fr}.hero{min-height:auto}.aside{max-width:650px}.rail-inner{position:static}.roles,.roles.two{grid-template-columns:1fr}.role{min-height:auto}}
+@media(max-width:600px){.shell{width:calc(100% - 34px)}.hero{padding:105px 0 60px}.footer-grid{display:block}.footer-grid p+p{margin-top:20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 <link rel="canonical" href="https://simplemindsstudios.com/hart-in-motion/">
-<meta name="description" content="A Town You Can Walk Into: the story behind Hart, in Motion, with 17 interactive studies and two cabin interior galleries.">
 <meta property="og:type" content="article">
-<meta property="og:site_name" content="Simple Minds Studios">
-<meta property="og:title" content="A Town You Can Walk Into · Hart, in Motion">
-<meta property="og:description" content="Begin with Cobmoosa House. Explore two cabin interiors and 17 interactive studies of Hart, Michigan.">
+<meta property="og:title" content="A Town You Can Walk Into — Simple Minds Studios">
 <meta property="og:url" content="https://simplemindsstudios.com/hart-in-motion/">
 <meta property="og:image" content="https://simplemindsstudios.com/hart-in-motion/explore/assets/heritage/cobmoosa-share-v1.png">
-<meta property="og:image:alt" content="Interpretive interior study of Cobmoosa House">
 <meta name="twitter:card" content="summary_large_image">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#e8e2d8;--card:#f3efe7;--ink:#2d3e4b;--muted:#4d6173;--accent:#7b4b5f;--gold:#8a7a58;--line:rgba(45,62,75,.16);--hero:#2e4a5e;--hero-ink:#e8e2d8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b141c;--card:#13212c;--ink:#e8e2d8;--muted:#a9bcc9;--accent:#d7a3b8;--gold:#b9a98a;--line:rgba(169,188,201,.18);--hero:#16283a;--hero-ink:#e8e2d8}}
-:root[data-theme="dark"]{--bg:#0b141c;--card:#13212c;--ink:#e8e2d8;--muted:#a9bcc9;--accent:#d7a3b8;--gold:#b9a98a;--line:rgba(169,188,201,.18);--hero:#16283a;--hero-ink:#e8e2d8}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
-body{background:var(--bg);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;line-height:1.75;font-weight:300;min-height:100%}
-.wrap{width:min(820px,calc(100% - 40px));margin:0 auto}
-.hero{background:var(--hero);color:var(--hero-ink);padding:72px 0 64px}
-.kicker{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;font-weight:500}
-h1{font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:clamp(2.5rem,8vw,4.6rem);line-height:.98;letter-spacing:-.03em}
-h1 em{font-weight:400;color:#d9c9a3}
-.dek{margin-top:24px;font-size:1.15rem;max-width:34em;opacity:.88}
-.by{margin-top:28px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
-section{padding:54px 0 6px}
-h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.7rem,4.6vw,2.5rem);line-height:1.08;letter-spacing:-.025em;margin-bottom:16px}
-h2 em{font-weight:400;color:var(--accent)}
-p{margin-bottom:16px;font-size:1.05rem}
-.lede::first-letter{font-family:'Playfair Display',serif;font-weight:900;font-size:3.6rem;float:left;line-height:.85;padding:6px 10px 0 0;color:var(--accent)}
-.pull{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.4rem,4vw,2rem);line-height:1.25;border-left:3px solid var(--gold);padding:6px 0 6px 22px;margin:30px 0;letter-spacing:-.02em}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 14px;text-align:center}
-.stat b{display:block;font-family:'Playfair Display',serif;font-size:2.2rem;line-height:1;color:var(--accent)}
-.stat span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
-.card h3{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:8px}
-.card p{font-size:.95rem;margin:0;color:var(--muted)}
-.steps{list-style:none;counter-reset:s;margin-top:18px}
-.steps li{counter-increment:s;display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:1rem}
-.steps li::before{content:"0" counter(s);font-size:.78rem;letter-spacing:.14em;color:var(--gold);font-weight:500;padding-top:4px}
-.cta{margin:56px 0 0;background:var(--hero);color:var(--hero-ink);padding:56px 0 64px}
-.cta h2{color:var(--hero-ink)}.cta h2 em{color:#d9c9a3}
-.btn{display:inline-block;margin-top:10px;background:#e8e2d8;color:#2d3e4b;padding:14px 26px;border-radius:14px;font-weight:600;text-decoration:none;font-size:.95rem}
-.btn.alt{background:transparent;color:var(--hero-ink);border:1px solid rgba(232,226,216,.4);margin-left:8px}
-.note{font-size:.78rem;opacity:.65;margin-top:26px;line-height:1.6}
-a.link{color:var(--accent)}
-@media(max-width:600px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.btn.alt{margin:10px 0 0}}
-</style>
+<link rel="alternate" type="text/markdown" href="https://simplemindsstudios.com/hart-in-motion/case-study.md" title="Plain-text case study">
 </head>
 <body>
-<header class="hero"><div class="wrap">
-<nav aria-label="Project navigation" style="display:flex;flex-wrap:wrap;gap:12px 24px;margin-bottom:32px;font-size:.85rem"><a href="/" style="color:inherit">← Simple Minds Studios</a><a href="/hart-in-motion/explore/#cabin" style="color:inherit">Explore Hart, in Motion ↗</a></nav>
-<div class="kicker">Simple Minds Studios · A Case Study</div>
-<h1>A town you can <em>walk into</em> from your phone.</h1>
-<p class="dek">How a small Michigan town became a place the whole internet can step inside, and what that could mean for yours.</p>
-<div class="by">By Bart Salazar · Hart, Michigan</div>
-</div></header>
+<header class="top"><div class="shell nav"><a class="brand" href="https://simplemindsstudios.com/">Simple Minds<span>.</span></a><a class="back" href="https://simplemindsstudios.com/">← Return to the museum</a></div></header>
+<main>
+<section class="hero"><div class="shell hero-grid"><div><span class="eyebrow">Case study / Public edition</span><h1>A town you can <em>walk into.</em></h1><p class="lede">How a small Michigan town became a place the whole internet can step inside, and what that could mean for yours.</p></div><aside class="aside"><p><strong>Founder and Creative Director</strong><br>Bart Salazar</p><p><strong>Project</strong><br>Hart, in Motion</p><p><strong>Hart, Michigan</strong><br>2026</p></aside></div></section>
 
-<main class="wrap">
-<section>
-<p class="lede">Most small towns have the same quiet problem. The history is real, the buildings are standing, the people who love the place are generous with their time, and almost none of it reaches anyone who isn’t already standing in front of it. A brochure, a Facebook page, a museum with limited hours. Good things, all of them, but rarely enough to make a stranger care.</p>
-<p><a class="link" href="/hart-in-motion/explore/#cabin" target="_blank" rel="noopener">Hart, in Motion</a> is our answer to that. It’s a personal field trip through Hart, Michigan: two log cabins, a church, a mill, a railway, and a downtown glowing under string lights, all explorable in a browser.</p>
-<div class="pull">Some places are part of who we are. The work is making sure other people can feel that too.</div>
-</section>
+<section class="statement"><div class="shell statement-grid"><aside class="rail"><div class="rail-inner"><span class="label">The problem</span><p>Every town has a story worth carrying further.</p></div></aside><article class="copy">
+<p>Most small towns have the same quiet problem. The history is real, the buildings are standing, the people who love the place are generous with their time, and almost none of it reaches anyone who isn’t already standing in front of it. A brochure, a Facebook page, a museum with limited hours. Good things, all of them, but rarely enough to make a stranger care.</p>
+<p><a class="link" href="https://simplemindsstudios.com/hart-in-motion/explore/#cabin">Hart, in Motion</a> is our answer. It’s a personal field trip through Hart, Michigan: two log cabins, a church, a mill, a railway, and a downtown glowing under string lights, all explorable in a browser.</p>
+<p class="declaration">Some places are part of who we are. <em>The work is making sure other people can feel that too.</em></p>
+</article></div></section>
 
-<section>
-<h2>What’s <em>inside</em></h2>
-<p>The collection opens with Cobmoosa House, rooted in the author’s own family heritage, then the Log House beside it. From there it widens to the whole town.</p>
-<div class="stats">
-<div class="stat"><b>17</b><span>Interactive studies</span></div>
-<div class="stat"><b>2</b><span>Interior galleries</span></div>
-<div class="stat"><b>12</b><span>Hotspots, original scene</span></div>
-</div>
-<div class="grid">
-<div class="card"><h3>Rotate the building</h3><p>Every landmark has a live 3D study you can turn, reset, or watch on a 15-second guided journey.</p></div>
-<div class="card"><h3>Photo ↔ render</h3><p>A slider compares the original photograph with the interpreted render, so visitors see exactly what was imagined.</p></div>
-<div class="card"><h3>After hours</h3><p>Switch to night, add a breeze, or hear a railway bell. Atmosphere is part of how people remember a place.</p></div>
-<div class="card"><h3>Save a postcard</h3><p>Visitors can capture a view and share it, which turns every curious click into a small act of marketing.</p></div>
-</div>
-</section>
+<section class="statement"><div class="shell statement-grid"><aside class="rail"><div class="rail-inner"><span class="label">What’s inside</span><p>The collection opens with Cobmoosa House, rooted in the author’s own family heritage, then the Log House beside it.</p></div></aside><article class="copy">
+<div class="roles"><section class="role stat"><span class="credit">Interactive studies</span><b>17</b></section><section class="role stat"><span class="credit">Interior galleries</span><b>2</b></section><section class="role stat"><span class="credit">Hotspots, original scene</span><b>12</b></section></div>
+<div class="roles two"><section class="role"><span class="credit">01 / Rotate</span><h3>Rotate the building</h3><p>Every landmark has a live 3D study you can turn, reset, or watch on a 15-second guided journey.</p></section><section class="role"><span class="credit">02 / Compare</span><h3>Photo ↔ render</h3><p>A slider compares the original photograph with the interpreted render, so visitors see exactly what was imagined.</p></section><section class="role"><span class="credit">03 / Atmosphere</span><h3>After hours</h3><p>Switch to night, add a breeze, or hear a railway bell. Atmosphere is part of how people remember a place.</p></section><section class="role"><span class="credit">04 / Share</span><h3>Save a postcard</h3><p>Visitors can capture a view and share it, which turns every curious click into a small act of marketing.</p></section></div>
+</article></div></section>
 
-<section>
-<h2>The part that earns <em>trust</em></h2>
+<section class="statement"><div class="shell statement-grid"><aside class="rail"><div class="rail-inner"><span class="label">The trust</span><p>Honesty is the feature.</p></div></aside><article class="copy">
 <p>Here is what we think makes this work for towns, not just for fans of 3D. The site says plainly what it knows and what it doesn’t. Renders are labeled as interpretations, not measured replicas. Photographs are kept separate from archival claims. Unverified dates stay open. Each historical note links back to a local source, and the page states when those sources were last checked.</p>
-<div class="pull">It doesn’t claim an official affiliation, and it doesn’t pretend a rendering is a record.</div>
+<p class="declaration">It doesn’t pretend a rendering <em>is a record.</em></p>
 <p>That honesty matters to the people who guard a town’s history. Historical societies and preservation groups can say yes to this because it respects their work instead of overwriting it.</p>
-</section>
+</article></div></section>
 
-<section>
-<h2>Who this is <em>for</em></h2>
-<div class="grid">
-<div class="card"><h3>Historical societies</h3><p>A living companion to the museum, open at midnight, on any phone.</p></div>
-<div class="card"><h3>Chambers &amp; tourism boards</h3><p>A reason for visitors to plan a trip, and a shareable link that does the introducing.</p></div>
-<div class="card"><h3>Libraries &amp; schools</h3><p>Local history students can explore, with sources they can follow and cite.</p></div>
-<div class="card"><h3>Downtown groups</h3><p>Public art, storefronts, and events presented as one walkable story.</p></div>
-</div>
-</section>
+<section class="statement"><div class="shell statement-grid"><aside class="rail"><div class="rail-inner"><span class="label">Who it’s for</span><p>Four kinds of people who keep a town’s story alive.</p></div></aside><article class="copy">
+<div class="roles two"><section class="role"><span class="credit">Preservation</span><h3>Historical societies</h3><p>A living companion to the museum, open at midnight, on any phone.</p></section><section class="role"><span class="credit">Visitors</span><h3>Chambers &amp; tourism boards</h3><p>A reason for visitors to plan a trip, and a shareable link that does the introducing.</p></section><section class="role"><span class="credit">Learning</span><h3>Libraries &amp; schools</h3><p>Local history students can explore, with sources they can follow and cite.</p></section><section class="role"><span class="credit">Main Street</span><h3>Downtown groups</h3><p>Public art, storefronts, and events presented as one walkable story.</p></section></div>
+<div class="questions"><p>Whose story anchors your town?</p><p>What do they want carried forward?</p><p>What needs to become visible?</p></div>
+</article></div></section>
 
-<section>
-<h2>How we <em>build one</em></h2>
-<ol class="steps">
-<li>Begin with the people. Whose story anchors the collection, and what do they want carried forward?</li>
-<li>Photograph the place. Real images are the visual record everything else is measured against.</li>
-<li>Interpret carefully. AI-assisted stills and approximate 3D models, always labeled as such.</li>
-<li>Link every claim. Local sources, check dates, and open questions kept visible.</li>
-<li>Hand it back. A shareable site your town can point to, present, and grow.</li>
-</ol>
-</section>
+<section class="statement"><div class="shell statement-grid"><aside class="rail"><div class="rail-inner"><span class="label">The method</span><p>Five steps, always in this order.</p></div></aside><article class="copy">
+<ol class="steps"><li>Begin with the people. Whose story anchors the collection, and what do they want carried forward?</li><li>Photograph the place. Real images are the visual record everything else is measured against.</li><li>Interpret carefully. AI-assisted stills and approximate 3D models, always labeled as such.</li><li>Link every claim. Local sources, check dates, and open questions kept visible.</li><li>Hand it back. A shareable site your town can point to, present, and grow.</li></ol>
+</article></div></section>
+
+<section class="final"><div class="shell"><h2>Let’s make your town <em>make sense.</em></h2><p>If you work for a historical society, chamber, library, or town that wants its story to travel, we’d love to talk about a collection built around yours.</p><div class="actions"><a class="button primary" href="mailto:MITechBros@outlook.com?subject=Our%20town%20story&amp;body=Town%3A%0AYour%20role%3A%0AWhat%20story%20do%20you%20want%20to%20tell%3F">Start a conversation</a><a class="button" href="https://simplemindsstudios.com/hart-in-motion/explore/#cabin">Explore Hart, in Motion</a><a class="button" href="https://simplemindsstudios.com/ethos/">Read the ethos</a></div></div></section>
 </main>
-
-<div class="cta"><div class="wrap">
-<h2>Let’s make your town <em>make sense.</em></h2>
-<p>If you work for a historical society, chamber, library, or town that wants its story to travel, we’d love to talk about a collection built around yours.</p>
-<a class="btn" href="mailto:MITechBros@outlook.com?subject=Hart%2C%20in%20Motion%20inquiry">Start a conversation</a>
-<a class="btn alt" href="/hart-in-motion/explore/#cabin" target="_blank" rel="noopener">Explore Hart, in Motion</a>
-<p class="note"><a href="/ethos/" style="color:inherit">Our ethos ↗</a> · <a href="/people/" style="color:inherit">Meet the studio ↗</a></p>
-<div class="note">An independent project by Simple Minds Studios. Hart, in Motion is not officially affiliated with the City of Hart or its heritage organizations.</div>
-</div></div>
+<footer><div class="shell footer-grid"><p>Simple Minds Studios<br>Hart, Michigan — 2026<br>An independent project. Not officially affiliated with the City of Hart or its heritage organizations.</p></div></footer>
 </body>
 </html>

@@ -18,6 +18,12 @@ The Author may use AI systems for activities such as:
 
 AI-generated or AI-assisted material is reviewed, selected, modified, rejected, or incorporated under human editorial control.
 
+## User-Requested Reading and Discussion
+
+AI assistants may access public studio materials to read, summarize, cite, compare, and discuss them in response to a person's specific request. Temporary processing needed for that response is permitted. This limited permission does not authorize model training, fine-tuning, bulk scraping, persistent embedding collections, dataset creation, reproduction, commercialization, or derivative works. Project-specific credit and third-party terms still apply.
+
+The restrictions below concern collection and reuse beyond this limited requested reading and discussion.
+
 ## No AI Training or Dataset Permission
 
 Public access to this repository does not grant permission to use its contents for:
