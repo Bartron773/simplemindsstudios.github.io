@@ -1,0 +1,20 @@
+{
+  "id": "sms-proposed-gravity-engineered-v5",
+  "title": "Gravity, Engineered \u2014 Heavy-Duty Gravy Can Dispenser V5",
+  "status": "Proposed public artifact; digitally validated / physically unprinted",
+  "type": "3D design / functional fabrication / kitchen workflow",
+  "credit": {
+    "design_direction": "Brad DeVowe",
+    "cad_assistance": "Lincoln (ChatGPT / OpenAI)",
+    "publisher": "Simple Minds Studios (pending site approval)"
+  },
+  "version": "V5",
+  "documented_date": "2026-11-03",
+  "summary": "An eight-can, front-load/front-retrieve gravity dispenser designed for a constrained shelf.",
+  "public_preview": "artifacts/gravy-dispenser-v5/index.html",
+  "thumbnail": "artifacts/gravy-dispenser-v5/assets/v5-loaded-cad.png",
+  "physical_tested": false,
+  "downloadable_3d_files_in_public_package": false,
+  "source_archive": "Gravy_Can_Dispenser_V5_Full_Assembly.zip (held separately by owner)",
+  "publication_note": "No claims of physical or commercial readiness. Confirm rights and destination before live publication."
+}
