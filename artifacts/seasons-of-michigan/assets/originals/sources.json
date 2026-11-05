@@ -1,0 +1,59 @@
+{
+  "gallery_title": "How it began",
+  "description": "The four original seasonal photographs that inspired Seasons of Michigan.",
+  "credit_note": "Source photographs supplied by Brad Devowe. Individual photographer credits are not independently verified; a name in a supplied filename is not treated as proof of authorship.",
+  "images": [
+    {
+      "season": "Spring",
+      "path": "spring.jpg",
+      "original_filename": "1--2014-05-22 13.54.30.jpg",
+      "width": 1536,
+      "height": 1152,
+      "size_bytes": 314434,
+      "sha256": "233f686cbc1e22c06cc0a982c861161ee78a704d03334736041c6f55e3378fa0",
+      "git_blob_sha": "14aa03767bfb57f5bed15786e454a6944b65bd61",
+      "original_bytes_preserved": true,
+      "supplied_by": "Brad Devowe",
+      "photographer_credit": null
+    },
+    {
+      "season": "Summer",
+      "path": "summer.jpg",
+      "original_filename": "2--2014-06-01 10.16.47.jpg",
+      "width": 1536,
+      "height": 1152,
+      "size_bytes": 285039,
+      "sha256": "4fb2ba2a90e7ae5dff642329bf86ec5c8d65b8fe3f708239fcb4ff8ed8ddea92",
+      "git_blob_sha": "a86d4b12ba5eb83bb5be01c8f46c4e5529af8ab3",
+      "original_bytes_preserved": true,
+      "supplied_by": "Brad Devowe",
+      "photographer_credit": null
+    },
+    {
+      "season": "Autumn",
+      "path": "autumn.jpg",
+      "original_filename": "3--2013-11-03 14.43.14 patti.jpg",
+      "width": 1536,
+      "height": 1152,
+      "size_bytes": 308328,
+      "sha256": "8147b298ae2e60fa74a33f9de61b249862f1e83853b57e7f860783cb978fe1f6",
+      "git_blob_sha": "94315f730d42cf60c3ea29407df2f261541953e3",
+      "original_bytes_preserved": true,
+      "supplied_by": "Brad Devowe",
+      "photographer_credit": null
+    },
+    {
+      "season": "Winter",
+      "path": "winter.jpg",
+      "original_filename": "4--2013-11-23 10.21.03 Patti.jpg",
+      "width": 1536,
+      "height": 1152,
+      "size_bytes": 156159,
+      "sha256": "9a8772a18463a2930a46435722cedde71556c9587ad48000f9c538a4271eb00c",
+      "git_blob_sha": "14ab33148f013d6df806497bd6163ff331eb7158",
+      "original_bytes_preserved": true,
+      "supplied_by": "Brad Devowe",
+      "photographer_credit": null
+    }
+  ]
+}

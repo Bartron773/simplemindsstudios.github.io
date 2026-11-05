@@ -14,6 +14,9 @@ This file is a reading guide for people and AI assistants. Follow the linked sou
 
 ## Projects
 
+- [Seasons of Michigan](https://simplemindsstudios.com/artifacts/seasons-of-michigan/): Brad Devowe’s completed AI-assisted photographic composite blending four seasonal views of a Michigan road; artwork credit: SimpleMindsStudios - Brad Devowe.
+- [Seasons of Michigan metadata](https://simplemindsstudios.com/artifacts/seasons-of-michigan/artifact.json): contribution roles, image provenance, and AI-assistance disclosure.
+
 - [Hart, in Motion — case study](https://simplemindsstudios.com/hart-in-motion/): A Town You Can Walk Into, a browser-based exploration of Hart, Michigan.
 - [Hart case study in Markdown](https://simplemindsstudios.com/hart-in-motion/case-study.md): readable narrative without running the 3D experience.
 - [Interactive Hart collection](https://simplemindsstudios.com/hart-in-motion/explore/#cabin): begins with Cobmoosa House; photographs and interpretive models are distinct.

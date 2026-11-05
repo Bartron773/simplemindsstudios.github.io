@@ -21,6 +21,10 @@ The public website is the curated exhibition. GitHub is the working archive cont
 - **Low Visibility Brand Bible** — Visual identity, atmosphere, and brand system. [Repository](https://github.com/Bartron773/low-visibility-brand-bible)
 - **Glam Confession** — Music, performance, identity, and AI-assisted narrative. [Repository](https://github.com/Bartron773/glam-confession)
 
+## Photography and Digital Art
+
+- **Seasons of Michigan** — Four seasonal photographs blended into one Michigan road composition. Creative direction: Brad Devowe; AI assistance: Lincoln (ChatGPT / OpenAI). Artwork credit: **SimpleMindsStudios - Brad Devowe**. [View the artifact](../artifacts/seasons-of-michigan/) · [Metadata](../artifacts/seasons-of-michigan/artifact.json)
+
 ## In Development
 
 Future additions may include films, public-art proposals, music videos, photographic series, research publications, model-built exhibits, and other experimental work.
