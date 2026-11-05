@@ -46,6 +46,17 @@
     .seasons li{display:flex;align-items:center;gap:8px}
     .seasons i{display:block;width:6px;height:6px;border-radius:50%;background:var(--season)}
     .caption a{font-size:12px}
+    .origins{padding:44px 0 40px;border-bottom:1px solid var(--line)}
+    .origins h2{margin:12px 0 14px}
+    .origins-intro{color:var(--muted);max-width:720px;margin:0 0 24px}
+    .source-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+    .source{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+    .source a{display:block;line-height:0}
+    .source img{display:block;width:100%;height:auto}
+    .source figcaption{display:flex;gap:12px;align-items:center;padding:13px 15px;font-size:12px}
+    .source figcaption strong{font-weight:600;margin-right:auto}
+    .source-number{font:600 10px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--accent)}
+    .source-note{color:var(--muted);font-size:12px;margin:20px 0 0}
     .story{display:grid;grid-template-columns:1.12fr 1fr;gap:80px;padding:64px 0 70px}
     h2{font:400 clamp(30px,3.5vw,44px)/1.18 Georgia,"Times New Roman",serif;letter-spacing:-.025em;margin:16px 0 22px;max-width:500px}
     .story p{color:var(--muted);margin:0 0 18px;max-width:560px}
@@ -58,6 +69,8 @@
     footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
     .footer-brand{letter-spacing:.1em;text-transform:uppercase}
     @media(min-width:1500px){.hero{padding-top:80px}}
+    @media(max-width:900px){.source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:480px){.source-grid{grid-template-columns:1fr}.origins{padding:32px 0}}
     @media(max-width:760px){.wrap{width:calc(100% - 36px)}.top .wrap{min-height:66px;gap:14px}.brand{font-size:10px;letter-spacing:.1em}.back{font-size:11px}.hero{padding:42px 0 25px}h1{font-size:clamp(44px,9.6vw,72px);margin:17px 0}.intro{display:block}.intro p{font-size:16px}.credit{margin-top:12px!important;white-space:normal}.story{grid-template-columns:1fr;gap:24px;padding:42px 0 46px}.caption{gap:14px;padding:15px 0 19px}.seasons{gap:17px;font-size:11px}.detail{grid-template-columns:120px 1fr;gap:14px}h2{font-size:34px}.footer-brand{font-size:10px}}
   </style>
   <script type="application/ld+json">
@@ -90,6 +103,30 @@
         <a href="assets/seasons-of-michigan.png">View full image ↗</a>
       </figcaption>
     </figure>
+    <section id="origins" class="origins" aria-labelledby="origins-title">
+      <p class="label">The original photographs</p>
+      <h2 id="origins-title">How it began</h2>
+      <p class="origins-intro">These four seasonal photographs inspired the finished composition. See the road in each season, before the separate moments were brought together.</p>
+      <div class="source-grid">
+        <figure class="source">
+          <a href="assets/originals/spring.jpg" aria-label="Open the original spring photograph"><img src="assets/originals/spring.jpg" width="1536" height="1152" loading="lazy" decoding="async" alt="The original spring view of the road, with fresh pale green leaves and open branches against a blue sky."></a>
+          <figcaption><span class="source-number">01</span><strong>Spring</strong><span aria-hidden="true">↗</span></figcaption>
+        </figure>
+        <figure class="source">
+          <a href="assets/originals/summer.jpg" aria-label="Open the original summer photograph"><img src="assets/originals/summer.jpg" width="1536" height="1152" loading="lazy" decoding="async" alt="The original summer view of the road, surrounded by dense green foliage in bright sunlight."></a>
+          <figcaption><span class="source-number">02</span><strong>Summer</strong><span aria-hidden="true">↗</span></figcaption>
+        </figure>
+        <figure class="source">
+          <a href="assets/originals/autumn.jpg" aria-label="Open the original autumn photograph"><img src="assets/originals/autumn.jpg" width="1536" height="1152" loading="lazy" decoding="async" alt="The original autumn view of the road, with vivid gold and orange leaves and cut logs beside the trees."></a>
+          <figcaption><span class="source-number">03</span><strong>Autumn</strong><span aria-hidden="true">↗</span></figcaption>
+        </figure>
+        <figure class="source">
+          <a href="assets/originals/winter.jpg" aria-label="Open the original winter photograph"><img src="assets/originals/winter.jpg" width="1536" height="1152" loading="lazy" decoding="async" alt="The original winter view of the road during snowfall, with bare trees and snow covering the road and ground."></a>
+          <figcaption><span class="source-number">04</span><strong>Winter</strong><span aria-hidden="true">↗</span></figcaption>
+        </figure>
+      </div>
+      <p class="source-note">Source photographs supplied by Brad Devowe. Select an image to view its complete original file.</p>
+    </section>
     <section class="story" aria-labelledby="question">
       <div>
         <p class="label">The question</p>

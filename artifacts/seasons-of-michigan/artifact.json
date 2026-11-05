@@ -1,7 +1,7 @@
 {
   "id": "sms-seasons-of-michigan",
   "title": "Seasons of Michigan",
-  "version": "1.0",
+  "version": "1.1",
   "documented_date": "2026-11-04",
   "status": "Completed artwork",
   "type": "Photography / AI-assisted digital composite",
@@ -32,5 +32,46 @@
     "ai_role": "AI-assisted seasonal blending and final presentation; the exhibit does not claim the resulting image is an unedited photograph."
   },
   "standards_reference": "https://github.com/Simple-Minds-Studios/sms-standards/tree/e47804d7e92c305aaf3587d44547c14fe62fbb48",
-  "rights_note": "Preserve project-specific credits and all applicable source-photo and studio rights notices. Publication does not transfer any contributor's rights or imply that purely AI-generated material is human-authored."
+  "rights_note": "Preserve project-specific credits and all applicable source-photo and studio rights notices. Publication does not transfer any contributor's rights or imply that purely AI-generated material is human-authored.",
+  "source_gallery": {
+    "title": "How it began",
+    "anchor": "#origins",
+    "manifest": "assets/originals/sources.json",
+    "original_photographs_included": true,
+    "original_bytes_preserved": true,
+    "images": [
+      {
+        "season": "Spring",
+        "path": "assets/originals/spring.jpg",
+        "original_filename": "1--2014-05-22 13.54.30.jpg",
+        "width": 1536,
+        "height": 1152,
+        "sha256": "233f686cbc1e22c06cc0a982c861161ee78a704d03334736041c6f55e3378fa0"
+      },
+      {
+        "season": "Summer",
+        "path": "assets/originals/summer.jpg",
+        "original_filename": "2--2014-06-01 10.16.47.jpg",
+        "width": 1536,
+        "height": 1152,
+        "sha256": "4fb2ba2a90e7ae5dff642329bf86ec5c8d65b8fe3f708239fcb4ff8ed8ddea92"
+      },
+      {
+        "season": "Autumn",
+        "path": "assets/originals/autumn.jpg",
+        "original_filename": "3--2013-11-03 14.43.14 patti.jpg",
+        "width": 1536,
+        "height": 1152,
+        "sha256": "8147b298ae2e60fa74a33f9de61b249862f1e83853b57e7f860783cb978fe1f6"
+      },
+      {
+        "season": "Winter",
+        "path": "assets/originals/winter.jpg",
+        "original_filename": "4--2013-11-23 10.21.03 Patti.jpg",
+        "width": 1536,
+        "height": 1152,
+        "sha256": "9a8772a18463a2930a46435722cedde71556c9587ad48000f9c538a4271eb00c"
+      }
+    ]
+  }
 }

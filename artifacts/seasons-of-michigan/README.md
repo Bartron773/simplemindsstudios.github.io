@@ -11,6 +11,8 @@ A finished, AI-assisted photographic composite blending four seasonal views acro
 - Source material: four photographs supplied by Brad. Do not infer that every original photograph was taken by Brad; individual photography credits have not been independently verified.
 - The final image is digitally composited. It is not represented as a single exposure or an unedited documentary photograph.
 - `assets/seasons-of-michigan.png` preserves the exact supplied final image bytes, including its title and on-image credit. No replacement generation, recropping, or animation is included.
+- The **How it began** gallery displays the four original photographs in spring, summer, autumn, and winter order. Each image opens its full original JPG. Their bytes are preserved without cropping, regeneration, or recompression.
+- `assets/originals/sources.json` records the original supplied filenames, dimensions, and hashes. The autumn and winter filenames include “Patti”; that label is retained in the source record without assuming a photographer identity.
 
 ## Exhibit
 
